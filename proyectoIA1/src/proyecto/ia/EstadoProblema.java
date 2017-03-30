@@ -148,7 +148,8 @@ public class EstadoProblema {
     //================================================================================
     //generador de solucion inicial
     //================================================================================
-    //solucion mierder
+    //solucion inicial: conectar los sensores directamente a los centros mientras haya espacio
+    //despues, conectar los sensores a otros sensores ya conectados
     public void generar_sol_ini(){
         int j = 0; // u es el indice del primer sensor desconectado
         for(int i = 0; i != cds.size();++i){
@@ -171,7 +172,7 @@ public class EstadoProblema {
                 }
             }
         }
-        if(j!= sds.size()) //tenemos un problema: hay sensores que no podemos conectar
+        if(j!= sds.size()) //tenemos un problema: hay sensores que no podemos conectar(no deberia pasar)
             System.out.println("ERROR: HAY SENSORES QUE NO PUEDEN SER CONECTADOS");
         for(Integer k: connectionsMap.keySet()){
             System.out.println(k + " está conectado a " + connectionsMap.get(k));
@@ -181,10 +182,11 @@ public class EstadoProblema {
     // Auxiliars, Setters, Getters
     //================================================================================
 
-    HashMap<Integer, Integer> getSensorMap() {
+    HashMap<Integer, Integer> getConnectionsMap() {
         return this.connectionsMap;
     }
 
+    //por qué lo coge de el array de sensor data y no de la clase Sensores?
     IA.Red.Sensor getSensorAt(Integer i) {
         return sds.get(i).getSensor();
     }
