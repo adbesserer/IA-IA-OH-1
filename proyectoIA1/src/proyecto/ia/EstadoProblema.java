@@ -6,10 +6,11 @@ import java.util.Scanner;
 import java.util.*;
 
 public class EstadoProblema {
-    ArrayList<CenterData> cd = new ArrayList<CenterData>();
-    ArrayList<SensorData> sd = new ArrayList<SensorData>();
+    ArrayList<CenterData> cds = new ArrayList<CenterData>();
+    ArrayList<SensorData> sds = new ArrayList<SensorData>();
 
     //solo necesito saber cual de ellos es de cd y sd
+    //el primero siempre es sensor
     HashMap<Integer, Integer> connectionsMap = new HashMap<>();
 
     //================================================================================
@@ -50,14 +51,14 @@ public class EstadoProblema {
         for(Integer i = 0; i != ss.size(); ++i){
             Sensor s = ss.get(i);
             SensorData sData = new SensorData(s, i);
-            sd.add(i, sData);
+            sds.add(i, sData);
             connectionsMap.put(i, -1);
         }
 
         for(Integer i=0; i != cs.size(); ++i){
             Centro c = cs.get(i);
             CenterData cData = new CenterData(c, i);
-            cd.add(i, cData);
+            cds.add(i, cData);
         }
         Output();
     }
@@ -69,12 +70,12 @@ public class EstadoProblema {
     void Output(){
         System.out.println("SENSORES");
         for(Integer key: connectionsMap.keySet()){
-            System.out.println(sd.get(key).getCoordX()+" "+sd.get(key).getCoordY());
+            System.out.println(sds.get(key).getCoordX()+" "+sds.get(key).getCoordY());
         }
 
         System.out.println("CENTROS");
-        for(Integer i=0; i != cd.size(); i++){
-            System.out.println(cd.get(i).getCoordX()+" "+cd.get(i).getCoordY());
+        for(Integer i=0; i != cds.size(); i++){
+            System.out.println(cds.get(i).getCoordX()+" "+cds.get(i).getCoordY());
         }
     }
 
@@ -85,17 +86,17 @@ public class EstadoProblema {
         if(connectionsMap.get(s2) == -1 || (s2.getCapacidad()*3 >= (s2.getVolumen() + s1.getVolumen()))) {
             connectionsMap.put(s1.getKey(), s2.getKey());
             s2.setVolumen(s2.getVolumen() + s1.getVolumen());
-            sd.add(s2.getKey(), s2);
+            sds.add(s2.getKey(), s2);
         }
     }
 
     public void conectarSC(SensorData s, CenterData c) {
         if(((c.getCapacitat()+s.getVolumen()) <= 150) && ((c.getnConnexions() + 1) >= 25)) {
             pair q = new pair(c.getCoordX(), c.getCoordY());
-            connectionsMap.put(s.getKey(), sd.size() + c.getKey()); //TODO: Connexions amb centres. Faig una guarrada de mentres  que es que per a tot index referit a centre es sensors.size()+Key del centre
+            connectionsMap.put(s.getKey(), sds.size() + c.getKey()); //TODO: Connexions amb centres. Faig una guarrada de mentres  que es que per a tot index referit a centre es sensors.size()+Key del centre
             c.setCapacitat(c.getCapacitat()+s.getVolumen());
             c.setnConnexions(c.getnConnexions() + 1);
-            cd.add(c.getKey(), c);
+            cds.add(c.getKey(), c);
         }
     }
 
@@ -105,12 +106,12 @@ public class EstadoProblema {
         Integer key = s1.getKey();
         while(!esCentre) {
             key = connectionsMap.get(key);
-            if(key >= sd.size()) {
+            if(key >= sds.size()) {
                 esCentre = true;
-                CenterData cData = cd.get(key - sd.size()); //TODO: consquencies de la guarrada maxima feta més amunt.
+                CenterData cData = cds.get(key - sds.size()); //TODO: consquencies de la guarrada maxima feta més amunt.
                 cData.setCapacitat(cData.getCapacitat() - vol);
             } else {
-                SensorData sData  = sd.get(key);
+                SensorData sData  = sds.get(key);
                 sData.setVolumen(sData.getVolumen() - vol);
             }
         }
@@ -121,7 +122,7 @@ public class EstadoProblema {
         desconectarSS(s);
         c.setCapacitat(c.getCapacitat() - s.getVolumen());
         c.setnConnexions(c.getnConnexions() - 1);
-        cd.add(c.getKey(), c);
+        cds.add(c.getKey(), c);
     }
 
 
@@ -147,9 +148,34 @@ public class EstadoProblema {
     //================================================================================
     //generador de solucion inicial
     //================================================================================
-
+    //solucion mierder
     public void generar_sol_ini(){
-
+        int j = 0; // u es el indice del primer sensor desconectado
+        for(int i = 0; i != cds.size();++i){
+            while(cds.get(i).getnConnexions()<25 && j != sds.size()){
+                Integer key1 = sds.get(j).getKey();
+                Integer key2 = cds.get(i).getKey();
+                connectionsMap.put(key1,key2);
+                cds.get(i).setnConnexions(cds.get(i).getnConnexions()+1);
+                ++j;
+            }
+        }
+        if(j!= sds.size()) { //todavia quedan sensores sin conectar y los centros de datos estan llenos
+            for(int i = 0; i != j; ++i){
+                while(sds.get(i).getnConnexions()<3 && j != sds.size()){
+                    Integer key1 = sds.get(j).getKey();
+                    Integer key2 = sds.get(i).getKey();
+                    connectionsMap.put(key1,key2);
+                    sds.get(i).setnConnexions(sds.get(i).getnConnexions()+1);
+                    ++j;
+                }
+            }
+        }
+        if(j!= sds.size()) //tenemos un problema: hay sensores que no podemos conectar
+            System.out.println("ERROR: HAY SENSORES QUE NO PUEDEN SER CONECTADOS");
+        for(Integer k: connectionsMap.keySet()){
+            System.out.println(k + " está conectado a " + connectionsMap.get(k));
+        }
     }
     //================================================================================
     // Auxiliars, Setters, Getters
@@ -160,10 +186,10 @@ public class EstadoProblema {
     }
 
     IA.Red.Sensor getSensorAt(Integer i) {
-        return sd.get(i).getSensor();
+        return sds.get(i).getSensor();
     }
 
     SensorData getSensorDataAt(Integer i) {
-        return sd.get(i);
+        return sds.get(i);
     }
 }

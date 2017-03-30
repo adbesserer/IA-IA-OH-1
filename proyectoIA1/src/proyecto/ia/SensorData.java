@@ -7,6 +7,7 @@ public class SensorData {
     private Sensor sensor = new Sensor(0, 0, 0);
     private Integer volumen = 0;
     private Integer key = 0; //valor que nos indica cual es en el array
+    private Integer nConnexions = 0;
 
     SensorData(Sensor s, Integer key) {
         this.setSensor(s);
@@ -25,6 +26,10 @@ public class SensorData {
 
     public void setKey(Integer key) {
         this.key = key;
+    }
+
+    public void setnConnexions(Integer nConnexions) {
+        this.nConnexions = nConnexions;
     }
 
     public Integer getKey() {
@@ -49,5 +54,9 @@ public class SensorData {
 
     public int	getCoordY(){
         return this.sensor.getCoordY();
+    }
+
+    public Integer getnConnexions() {
+        return nConnexions;
     }
 }
