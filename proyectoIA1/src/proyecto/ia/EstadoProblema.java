@@ -102,7 +102,21 @@ public class EstadoProblema {
     }
 
     public void desconectarSS(SensorData s1){
-        sensorMap.remove(s1.getKey()); //TODO: Recalcular el volum de dades per als que venen DESPRÉS de s1, és recursiu! Es pot fer amb els Integer de sensorMap i sd[i] i nar recorrent.
+        boolean esCentre = false;
+        Integer vol = s1.getVolumen();
+        Integer key = s1.getKey();
+        while(!esCentre) {
+            key = sensorMap.get(key);
+            if(key >= sd.size()) {
+                esCentre = true;
+                CenterData cData = cd.get(key - sd.size()); //TODO: consquencies de la guarrada maxima feta més amunt.
+                cData.setCapacitat(cData.getCapacitat() - vol);
+            } else {
+                SensorData sData  = sd.get(key);
+                sData.setVolumen(sData.getVolumen() - vol);
+            }
+        }
+        sensorMap.remove(s1.getKey());
     }
 
     public void desconectarSC(SensorData s, CenterData c){
