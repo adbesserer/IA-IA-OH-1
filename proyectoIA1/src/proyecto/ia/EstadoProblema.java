@@ -8,12 +8,11 @@ import java.util.*;
  * Created by idhrenniel on 24/03/17.
  */
 public class EstadoProblema {
+    ArrayList<CenterData> cd = new ArrayList<CenterData>();
+    ArrayList<SensorData> sd = new ArrayList<SensorData>();
 
-    private Sensores ss;
-    private CentrosDatos cs;
-
-    HashMap<Sensor, pair> sensorMap = new HashMap<>();
-    HashMap<Centro, pair> centerMap = new HashMap<>();
+    //solo necesito saber cual de ellos es de cs y sd
+    HashMap<Integer, Integer> sensorMap = new HashMap<>();
 
     //================================================================================
     // Creadora
@@ -37,27 +36,30 @@ public class EstadoProblema {
         }
 
         System.out.println("Entre dos semillas diferentes, guapo.");
-        int seed1   = sc.nextInt();
-        int seed2   = sc.nextInt();
+        int seed1  = sc.nextInt();
+        int seed2  = sc.nextInt();
 
         while(seed1 == seed2){
             System.out.println("Las semillas no pueden ser iguales. Introduzca dos de nuevo.");
-            seed1   = sc.nextInt();
-            seed2   = sc.nextInt();
+            seed1  = sc.nextInt();
+            seed2  = sc.nextInt();
         }
 
-        ss = new Sensores(nSensors, seed1);
-        cs = new CentrosDatos(nCentros, seed2);
+        Sensores ss = new Sensores(nSensors, seed1);
+        CentrosDatos cs = new CentrosDatos(nCentros, seed2);
 
         pair pairVacio = new pair(0, 0);
-        for(int i = 0; i != ss.size(); ++i){
+        for(Integer i = 0; i != ss.size(); ++i){
             Sensor s = ss.get(i);
-            sensorMap.put(s, pairVacio);
+            SensorData sData = new SensorData(s, i);
+            sd.add(i, sData);
+            sensorMap.put(i, -1);
         }
 
-        for(int i=0; i != cs.size(); ++i){
+        for(Integer i=0; i != cs.size(); ++i){
             Centro c = cs.get(i);
-            centerMap.put(c, pairVacio);
+            CenterData cData = new CenterData(c, i);
+            cd.add(i, cData);
         }
         Output();
     }
@@ -68,66 +70,65 @@ public class EstadoProblema {
 
     void Output(){
         System.out.println("SENSORES");
-        for(Sensor key: sensorMap.keySet()){
-            System.out.println(key.getCoordX()+" "+key.getCoordY());
-            conectarSS(key, key);
+        for(Integer key: sensorMap.keySet()){
+            System.out.println(sd.get(key).getCoordX()+" "+sd.get(key).getCoordY());
         }
 
         System.out.println("CENTROS");
-        for(Centro key: centerMap.keySet()){
-            System.out.println(key.getCoordX()+" "+key.getCoordY());
+        for(Integer i=0; i != cd.size(); i++){
+            System.out.println(cd.get(i).getCoordX()+" "+cd.get(i).getCoordY());
         }
     }
 
     //================================================================================
     // Operadors
     //================================================================================
-    public void conectarSS(Sensor s1, Sensor s2) {
-        if((sensorMap.get(s2).x != s1.getCoordX()) || (sensorMap.get(s2).y != s1.getCoordY())) {
-            pair p = new pair(s2.getCoordX(), s2.getCoordY());
-            sensorMap.put(s1, p);
+    public void conectarSS(SensorData s1, SensorData s2) {
+        if(sensorMap.get(s2) == -1 || (s2.getCapacidad()*3 >= (s2.getVolumen() + s1.getVolumen()))) {
+            sensorMap.put(s1.getKey(), s2.getKey());
+            s2.setVolumen(s2.getVolumen() + s1.getVolumen());
+            sd.add(s2.getKey(), s2);
         }
     }
 
-    public void conectarSC(Sensor s, Centro c) {
-        if(((centerMap.get(c).x+s.getCapacidad()) <= 150) && ((centerMap.get(c).y + 1) >= 25)) {
+    public void conectarSC(SensorData s, CenterData c) {
+        if(((c.getCapacitat()+s.getVolumen()) <= 150) && ((c.getnConnexions() + 1) >= 25)) {
             pair q = new pair(c.getCoordX(), c.getCoordY());
-            sensorMap.put(s, q);
-            pair p = centerMap.get(c);
-            p.x = p.x + (int)s.getCapacidad();
-            p.y = p.y + 1;
+            sensorMap.put(s.getKey(), sd.size() + c.getKey()); //TODO: Connexions amb centres. Faig una guarrada de mentres  que es que per a tot index referit a centre es sensors.size()+Key del centre
+            c.setCapacitat(c.getCapacitat()+s.getVolumen());
+            c.setnConnexions(c.getnConnexions() + 1);
+            cd.add(c.getKey(), c);
         }
     }
 
-    public void desconectarSS(Sensor s1){
-        sensorMap.remove(s1);
+    public void desconectarSS(SensorData s1){
+        sensorMap.remove(s1.getKey()); //TODO: Recalcular el volum de dades per als que venen DESPRÉS de s1, és recursiu! Es pot fer amb els Integer de sensorMap i sd[i] i nar recorrent.
     }
 
-    public void desconectarSC(Sensor s, Centro c){
+    public void desconectarSC(SensorData s, CenterData c){
         desconectarSS(s);
-        pair p = centerMap.get(c);
-        p.x = p.x - (int)s.getCapacidad();
-        p.y = p.y - 1;
-        centerMap.put(c, p);
+        c.setCapacitat(c.getCapacitat() - s.getVolumen());
+        c.setnConnexions(c.getnConnexions() - 1);
+        cd.add(c.getKey(), c);
     }
 
 
-    public void cambiarCable(Sensor s, Object ini, Object dest) {
+    public void cambiarCable(SensorData s, Object ini, Object dest) {
         boolean desconectado = false;
-        if (ini instanceof Centro) {
-            desconectarSC(s, (Centro)ini);
+        if (ini instanceof CenterData) {
+            desconectarSC(s, (CenterData) ini);
             desconectado = true;
 
-        } else if(ini instanceof Sensor) {
+        } else if(ini instanceof SensorData) {
             desconectarSS(s);
             desconectado = true;
         }
         if(desconectado) {
-            if (dest instanceof Centro) {
-                conectarSC(s, (Centro)ini);
+            if (dest instanceof CenterData) {
+                conectarSC(s, (CenterData)ini);
 
             } else if(dest instanceof Sensor) {
-                conectarSS(s, (Sensor)ini);
+                conectarSS(s, (SensorData) ini);
             }
         }
     }
@@ -135,7 +136,15 @@ public class EstadoProblema {
     // Auxiliars, Setters, Getters
     //================================================================================
 
-    HashMap<Sensor, pair> getSensorMap() {
+    HashMap<Integer, Integer> getSensorMap() {
         return this.sensorMap;
+    }
+
+    Sensor getSensorAt(Integer i) {
+        return sd.get(i).getSensor();
+    }
+
+    SensorData getSensorDataAt(Integer i) {
+        return sd.get(i);
     }
 }

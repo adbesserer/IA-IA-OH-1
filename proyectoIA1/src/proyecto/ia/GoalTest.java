@@ -27,18 +27,21 @@ public class GoalTest {
     public double calculateCost(Object aState) {
         EstadoProblema state = (EstadoProblema) aState;
         double returnValue = 0;
-        HashMap<Sensor, pair> sensorMap = state.getSensorMap();
+        HashMap<Integer, Integer> sensorMap = state.getSensorMap();
         Iterator it = sensorMap.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry entrada = (Map.Entry)it.next();
-            returnValue = returnValue + costOfConnection((Sensor) entrada.getKey(), (pair) entrada.getValue());
+            SensorData aux = state.getSensorDataAt((Integer)entrada.getKey());
+            Sensor aux2 = state.getSensorAt((Integer)entrada.getValue());
+            pair p = new pair(aux2.getCoordX(), aux2.getCoordY());
+            returnValue = returnValue + costOfConnection(aux, p);
             it.remove(); // avoids a ConcurrentModificationException; (no sé si aquesta linia es necessaria, pero igualment, he fet una copia del sensorMap més amunt aixi que no haurai de ser problematica)
         }
         return returnValue;
     }
 
-    public double costOfConnection(Sensor inici, pair desti) {
-        return distance(inici.getCoordX(), inici.getCoordY(), desti.x, desti.y)*inici.getCapacidad();
+    public double costOfConnection(SensorData inici, pair desti) {
+        return distance(inici.getCoordX(), inici.getCoordY(), desti.x, desti.y)*inici.getVolumen();
     }
 
     public double distance(int Xi, int Yi, int Xj, int Yj) {
