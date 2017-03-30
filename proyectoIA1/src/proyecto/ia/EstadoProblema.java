@@ -5,9 +5,6 @@ import IA.Red.*;
 import java.util.Scanner;
 import java.util.*;
 
-/**
- * Created by idhrenniel on 24/03/17.
- */
 public class EstadoProblema {
     ArrayList<CenterData> cd = new ArrayList<CenterData>();
     ArrayList<SensorData> sd = new ArrayList<SensorData>();
