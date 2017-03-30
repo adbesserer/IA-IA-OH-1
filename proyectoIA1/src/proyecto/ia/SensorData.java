@@ -2,10 +2,6 @@ package proyecto.ia;
 
 import IA.Red.Sensor;
 
-/**
- * Created by adriamunuera on 30/3/17.
- */
-
 //ESTA CLASE NO EXTIENDE SENSOR PORQUE SINÓ DARÁ PROBLEMAS CON LA HERENCIA
 public class SensorData {
     private Sensor sensor = new Sensor(0, 0, 0);
@@ -16,7 +12,7 @@ public class SensorData {
         this.setSensor(s);
         this.setKey(key);
         double cap = s.getCapacidad();
-        this.setVolumen((int) Math.floor(cap));
+        this.volumen =(int) Math.floor(cap);
     }
 
     public void setSensor(Sensor sensor) {

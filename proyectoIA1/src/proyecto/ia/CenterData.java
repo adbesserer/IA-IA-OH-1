@@ -2,9 +2,6 @@ package proyecto.ia;
 
 import IA.Red.Centro;
 
-/**
- * Created by adriamunuera on 30/3/17.
- */
 public class CenterData {
     private Centro centro = new Centro(0, 0);
     private Integer key = 0;
