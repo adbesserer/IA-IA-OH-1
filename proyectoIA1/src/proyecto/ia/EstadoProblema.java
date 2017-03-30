@@ -12,8 +12,12 @@ public class EstadoProblema {
     private Sensores ss;
     private CentrosDatos cs;
 
-    HashMap<Sensor, ArrayList<pair>> sensorMap = new HashMap<>();
-    HashMap<Centro, ArrayList<pair>> centerMap = new HashMap<>();
+    HashMap<Sensor, pair> sensorMap = new HashMap<>();
+    HashMap<Centro, pair> centerMap = new HashMap<>();
+
+    //================================================================================
+    // Creadora
+    //================================================================================
 
     EstadoProblema(){
         Scanner sc = new Scanner(System.in);
@@ -45,21 +49,22 @@ public class EstadoProblema {
         ss = new Sensores(nSensors, seed1);
         cs = new CentrosDatos(nCentros, seed2);
 
+        pair pairVacio = new pair(0, 0);
         for(int i = 0; i != ss.size(); ++i){
             Sensor s = ss.get(i);
-            ArrayList<pair> conexiones = new ArrayList<pair>();
-            sensorMap.put(s,conexiones);
+            sensorMap.put(s, pairVacio);
         }
 
         for(int i=0; i != cs.size(); ++i){
             Centro c = cs.get(i);
-            ArrayList<pair> conexiones = new ArrayList<pair>();
-            centerMap.put(c, conexiones);
+            centerMap.put(c, pairVacio);
         }
-
         Output();
-
     }
+
+    //================================================================================
+    // Output
+    //================================================================================
 
     void Output(){
         System.out.println("SENSORES");
@@ -74,34 +79,63 @@ public class EstadoProblema {
         }
     }
 
-    //OPERADORES
-
+    //================================================================================
+    // Operadors
+    //================================================================================
     public void conectarSS(Sensor s1, Sensor s2) {
-        pair p = new pair(s2.getCoordX(), s2.getCoordY());
-        sensorMap.get(s1).add(p);
-        p.x = s1.getCoordX(); p.y = s1.getCoordY();
-        sensorMap.get(s2).add(p);
+        if((sensorMap.get(s2).x != s1.getCoordX()) || (sensorMap.get(s2).y != s1.getCoordY())) {
+            pair p = new pair(s2.getCoordX(), s2.getCoordY());
+            sensorMap.put(s1, p);
+        }
     }
 
     public void conectarSC(Sensor s, Centro c) {
-        pair p = new pair(c.getCoordX(), c.getCoordY());
-        sensorMap.get(s).add(p);
-        p.x = s.getCoordX(); p.y = s.getCoordY();
-        centerMap.get(c).add(p);
+        if(((centerMap.get(c).x+s.getCapacidad()) <= 150) && ((centerMap.get(c).y + 1) >= 25)) {
+            pair q = new pair(c.getCoordX(), c.getCoordY());
+            sensorMap.put(s, q);
+            pair p = centerMap.get(c);
+            p.x = p.x + (int)s.getCapacidad();
+            p.y = p.y + 1;
+        }
     }
 
-    public void desconectarSS(Sensor s1, Sensor s2){
-        pair p = new pair(s2.getCoordX(), s2.getCoordY());
-        sensorMap.get(s1).remove(p);
-        p.x = s1.getCoordX(); p.y = s1.getCoordY();
-        sensorMap.get(s2).remove(p);
+    public void desconectarSS(Sensor s1){
+        sensorMap.remove(s1);
     }
 
     public void desconectarSC(Sensor s, Centro c){
-        pair p = new pair(c.getCoordX(), c.getCoordY());
-        sensorMap.get(s).remove(p);
-        p.x = s.getCoordX(); p.y = s.getCoordY();
-        centerMap.get(c).remove(p);
+        desconectarSS(s);
+        pair p = centerMap.get(c);
+        p.x = p.x - (int)s.getCapacidad();
+        p.y = p.y - 1;
+        centerMap.put(c, p);
     }
 
+
+    public void cambiarCable(Sensor s, Object ini, Object dest) {
+        boolean desconectado = false;
+        if (ini instanceof Centro) {
+            desconectarSC(s, (Centro)ini);
+            desconectado = true;
+
+        } else if(ini instanceof Sensor) {
+            desconectarSS(s);
+            desconectado = true;
+        }
+        if(desconectado) {
+            if (dest instanceof Centro) {
+                conectarSC(s, (Centro)ini);
+
+            } else if(dest instanceof Sensor) {
+                conectarSS(s, (Sensor)ini);
+            }
+        }
+    }
+    //================================================================================
+    // Auxiliars, Setters, Getters
+    //================================================================================
+
+    HashMap<Sensor, pair> getSensorMap() {
+        return this.sensorMap;
+    }
 }
