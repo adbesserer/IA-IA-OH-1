@@ -9,8 +9,8 @@ public class EstadoProblema {
     ArrayList<CenterData> cd = new ArrayList<CenterData>();
     ArrayList<SensorData> sd = new ArrayList<SensorData>();
 
-    //solo necesito saber cual de ellos es de cs y sd
-    HashMap<Integer, Integer> sensorMap = new HashMap<>();
+    //solo necesito saber cual de ellos es de cd y sd
+    HashMap<Integer, Integer> connectionsMap = new HashMap<>();
 
     //================================================================================
     // Creadora
@@ -51,7 +51,7 @@ public class EstadoProblema {
             Sensor s = ss.get(i);
             SensorData sData = new SensorData(s, i);
             sd.add(i, sData);
-            sensorMap.put(i, -1);
+            connectionsMap.put(i, -1);
         }
 
         for(Integer i=0; i != cs.size(); ++i){
@@ -68,7 +68,7 @@ public class EstadoProblema {
 
     void Output(){
         System.out.println("SENSORES");
-        for(Integer key: sensorMap.keySet()){
+        for(Integer key: connectionsMap.keySet()){
             System.out.println(sd.get(key).getCoordX()+" "+sd.get(key).getCoordY());
         }
 
@@ -82,8 +82,8 @@ public class EstadoProblema {
     // Operadors
     //================================================================================
     public void conectarSS(SensorData s1, SensorData s2) {
-        if(sensorMap.get(s2) == -1 || (s2.getCapacidad()*3 >= (s2.getVolumen() + s1.getVolumen()))) {
-            sensorMap.put(s1.getKey(), s2.getKey());
+        if(connectionsMap.get(s2) == -1 || (s2.getCapacidad()*3 >= (s2.getVolumen() + s1.getVolumen()))) {
+            connectionsMap.put(s1.getKey(), s2.getKey());
             s2.setVolumen(s2.getVolumen() + s1.getVolumen());
             sd.add(s2.getKey(), s2);
         }
@@ -92,7 +92,7 @@ public class EstadoProblema {
     public void conectarSC(SensorData s, CenterData c) {
         if(((c.getCapacitat()+s.getVolumen()) <= 150) && ((c.getnConnexions() + 1) >= 25)) {
             pair q = new pair(c.getCoordX(), c.getCoordY());
-            sensorMap.put(s.getKey(), sd.size() + c.getKey()); //TODO: Connexions amb centres. Faig una guarrada de mentres  que es que per a tot index referit a centre es sensors.size()+Key del centre
+            connectionsMap.put(s.getKey(), sd.size() + c.getKey()); //TODO: Connexions amb centres. Faig una guarrada de mentres  que es que per a tot index referit a centre es sensors.size()+Key del centre
             c.setCapacitat(c.getCapacitat()+s.getVolumen());
             c.setnConnexions(c.getnConnexions() + 1);
             cd.add(c.getKey(), c);
@@ -104,7 +104,7 @@ public class EstadoProblema {
         Integer vol = s1.getVolumen();
         Integer key = s1.getKey();
         while(!esCentre) {
-            key = sensorMap.get(key);
+            key = connectionsMap.get(key);
             if(key >= sd.size()) {
                 esCentre = true;
                 CenterData cData = cd.get(key - sd.size()); //TODO: consquencies de la guarrada maxima feta més amunt.
@@ -114,7 +114,7 @@ public class EstadoProblema {
                 sData.setVolumen(sData.getVolumen() - vol);
             }
         }
-        sensorMap.remove(s1.getKey());
+        connectionsMap.remove(s1.getKey());
     }
 
     public void desconectarSC(SensorData s, CenterData c){
@@ -156,7 +156,7 @@ public class EstadoProblema {
     //================================================================================
 
     HashMap<Integer, Integer> getSensorMap() {
-        return this.sensorMap;
+        return this.connectionsMap;
     }
 
     IA.Red.Sensor getSensorAt(Integer i) {
