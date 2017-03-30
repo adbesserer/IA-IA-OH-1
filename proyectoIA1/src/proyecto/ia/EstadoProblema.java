@@ -1,6 +1,7 @@
 package proyecto.ia;
 
 import IA.Red.*;
+
 import java.util.Scanner;
 import java.util.*;
 
@@ -154,7 +155,7 @@ public class EstadoProblema {
         return this.sensorMap;
     }
 
-    Sensor getSensorAt(Integer i) {
+    IA.Red.Sensor getSensorAt(Integer i) {
         return sd.get(i).getSensor();
     }
 
