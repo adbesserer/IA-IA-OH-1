@@ -11,6 +11,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String command;
         while(true) {
+            ep.compute_volumes();
             command = new String(sc.next());
             if(command.equals("change")) {
                 System.out.println("Introduce la clave del sensor y la del nuevo destino del cable");
