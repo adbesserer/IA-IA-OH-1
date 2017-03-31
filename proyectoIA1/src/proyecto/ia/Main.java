@@ -8,11 +8,24 @@ public class Main {
         EstadoProblema ep = new EstadoProblema();
         ep.generar_sol_ini();
 
-        System.out.println("Introduce las claves de los sensores cuyos cables quieres intercambiar");
         Scanner sc = new Scanner(System.in);
-        Integer k1 = new Integer(sc.nextInt());
-        Integer k2 = new Integer(sc.nextInt());
-        ep.switchcables(k1,k2);
-        ep.showconnections();
+        String command;
+        while(true) {
+            command = new String(sc.next());
+            if(command.equals("change")) {
+                System.out.println("Introduce la clave del sensor y la del nuevo destino del cable");
+                Integer k1 = new Integer(sc.nextInt());
+                Integer k2 = new Integer(sc.nextInt());
+                ep.changecable(k1, k2);
+                ep.showconnections();
+            }
+            else if(command.equals("switch")){
+                System.out.println("Introduce las claves de los sensores cuyos cables quieres intercambiar");
+                Integer k1 = new Integer(sc.nextInt());
+                Integer k2 = new Integer(sc.nextInt());
+                ep.switchcables(k1,k2);
+                ep.showconnections();
+            }
+        }
     }
 }
