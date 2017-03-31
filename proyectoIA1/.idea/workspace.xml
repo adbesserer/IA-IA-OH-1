@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b956c3b-c829-4606-8284-4c0b7adb9e3f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/EstadoProblema.class" afterPath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/EstadoProblema.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/Main.class" afterPath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proyecto/ia/EstadoProblema.java" afterPath="$PROJECT_DIR$/src/proyecto/ia/EstadoProblema.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proyecto/ia/Main.java" afterPath="$PROJECT_DIR$/src/proyecto/ia/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proyecto/ia/SuccesorFunction.java" afterPath="$PROJECT_DIR$/src/proyecto/ia/SuccesorFunction.java" />
     </list>
     <list id="7ec4fbd8-dc60-4069-b215-e81334adce50" name="Failed commit: Default" comment="es dirigido o no?" />
     <list id="1e28913d-f68c-42f1-9fd8-761cac08c44a" name="Failed commit: Default (2)" comment="es dirigido o no?" />
@@ -41,8 +37,8 @@
       <file leaf-file-name="EstadoProblema.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/proyecto/ia/EstadoProblema.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="205" column="41" lean-forward="true" selection-start-line="205" selection-start-column="41" selection-end-line="205" selection-end-column="41" />
+            <state relative-caret-position="226">
+              <caret line="208" column="41" lean-forward="false" selection-start-line="208" selection-start-column="41" selection-end-line="208" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -587,7 +583,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490972862469</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="arregladas unas cuantas cosas y operador implementado">
+      <created>1490981910895</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1490981910895</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -952,8 +955,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proyecto/ia/EstadoProblema.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="205" column="41" lean-forward="true" selection-start-line="205" selection-start-column="41" selection-end-line="205" selection-end-column="41" />
+        <state relative-caret-position="226">
+          <caret line="208" column="41" lean-forward="false" selection-start-line="208" selection-start-column="41" selection-end-line="208" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

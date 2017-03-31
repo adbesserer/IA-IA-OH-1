@@ -203,6 +203,11 @@ public class EstadoProblema {
     }
     public void compute_volumes(){
         //funcion que utiliza un toposort para fijar para cada sensor o centro la cantidad de datos que pasan por el
+        //primero generamos la ordenación topológica de los sensores
+        Integer ge[] = new Integer[sds.size()+cds.size()];
+        for(int i = 0; i!= sds.size();++i){
+            ++ge.[connectionsMap.get(i)]; //connectionsmap.get(i) es a lo que apunta el sensor i
+        }
         Stack<Integer> s = new Stack<>();
     }
     //================================================================================
