@@ -6,18 +6,18 @@ import java.util.Scanner;
 import java.util.*;
 
 public class EstadoProblema {
-    ArrayList<CenterData> cds = new ArrayList<CenterData>();
-    ArrayList<SensorData> sds = new ArrayList<SensorData>();
+    public ArrayList<CenterData> cds = new ArrayList<CenterData>();
+    public ArrayList<SensorData> sds = new ArrayList<SensorData>();
 
     //solo necesito saber cual de ellos es de cd y sd
     //el primero siempre es sensor
-    HashMap<Integer, Integer> connectionsMap = new HashMap<>();
+    private HashMap<Integer, Integer> connectionsMap = new HashMap<>();
 
     //================================================================================
     // Creadora
     //================================================================================
 
-    EstadoProblema(){
+    public EstadoProblema(){
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Entre numero de sensores.");
@@ -67,7 +67,7 @@ public class EstadoProblema {
     // Output
     //================================================================================
 
-    void Output(){
+    public void Output(){
         System.out.println("SENSORES");
         for(Integer key: connectionsMap.keySet()){
             System.out.println(sds.get(key).getCoordX()+" "+sds.get(key).getCoordY());
@@ -82,69 +82,47 @@ public class EstadoProblema {
     //================================================================================
     // Operadors
     //================================================================================
-    public void conectarSS(SensorData s1, SensorData s2) {
-        if(connectionsMap.get(s2) == -1 || (s2.getCapacidad()*3 >= (s2.getVolumen() + s1.getVolumen()))) {
-            connectionsMap.put(s1.getKey(), s2.getKey());
-            s2.setVolumen(s2.getVolumen() + s1.getVolumen());
-            sds.add(s2.getKey(), s2);
+
+    public void switchcables (Integer keyS1, Integer keyS2){ //intercambiar la cosa a la que apuntan dos sensores
+        Integer keydest1,keydest2;
+        double capacidad1,capacidad2;
+        keydest1=connectionsMap.get(keyS1);
+        keydest2=connectionsMap.get(keyS2);
+        capacidad1=sds.get(keyS1).getCapacidad();
+        capacidad2=sds.get(keyS2).getCapacidad();
+        boolean UNSWITCHABLE = false;
+        //do the switching
+        Integer aux = connectionsMap.get(keyS1);
+        connectionsMap.put(keyS1,connectionsMap.get(keyS2));
+        connectionsMap.put(keyS2,aux);
+
+        //cambiar volumenes
+        if(keydest1>= sds.size()) { // = es un centro
+            keydest1-= sds.size();
+            cds.get(keydest1).setVolumen((int) (cds.get(keydest1).getVolumen() + capacidad2 - capacidad1  ));
+            if(cds.get(keydest1).getVolumen() > 150) UNSWITCHABLE = true;
+        }else{ //es un sensor
+            sds.get(keydest1).setVolumen((int) (sds.get(keydest1).getVolumen() + capacidad2 - capacidad1  ));
+            if(sds.get(keydest1).getVolumen() > sds.get(keydest1).getCapacidad()*3) UNSWITCHABLE = true;
+        }
+        if(keydest2>= sds.size()) { // = es un centro
+            keydest2-= sds.size();
+            cds.get(keydest2).setVolumen((int) (cds.get(keydest2).getVolumen() + capacidad1 - capacidad2  ));
+            if(cds.get(keydest2).getVolumen() > 150) UNSWITCHABLE = true;
+        }else{ //es un sensor
+            sds.get(keydest2).setVolumen((int) (sds.get(keydest2).getVolumen() + capacidad1 - capacidad2  ));
+            if(sds.get(keydest2).getVolumen() > sds.get(keydest2).getCapacidad()*3) UNSWITCHABLE = true;
+        }
+        //check if switching was correct, else undo
+        if(UNSWITCHABLE){
+            System.out.println("VOLUME ERROR: cannot switch cables");
+            switchcables(keyS1,keyS2);
         }
     }
+    public void changecable(Integer KeySource, Integer KeyDest){  //el sensor Keysource pasa a estar conectado a keydest
 
-    public void conectarSC(SensorData s, CenterData c) {
-        if(((c.getCapacitat()+s.getVolumen()) <= 150) && ((c.getnConnexions() + 1) >= 25)) {
-            pair q = new pair(c.getCoordX(), c.getCoordY());
-            connectionsMap.put(s.getKey(), sds.size() + c.getKey()); //TODO: Connexions amb centres. Faig una guarrada de mentres  que es que per a tot index referit a centre es sensors.size()+Key del centre
-            c.setCapacitat(c.getCapacitat()+s.getVolumen());
-            c.setnConnexions(c.getnConnexions() + 1);
-            cds.add(c.getKey(), c);
-        }
     }
 
-    public void desconectarSS(SensorData s1){
-        boolean esCentre = false;
-        Integer vol = s1.getVolumen();
-        Integer key = s1.getKey();
-        while(!esCentre) {
-            key = connectionsMap.get(key);
-            if(key >= sds.size()) {
-                esCentre = true;
-                CenterData cData = cds.get(key - sds.size()); //TODO: consquencies de la guarrada maxima feta més amunt.
-                cData.setCapacitat(cData.getCapacitat() - vol);
-            } else {
-                SensorData sData  = sds.get(key);
-                sData.setVolumen(sData.getVolumen() - vol);
-            }
-        }
-        connectionsMap.remove(s1.getKey());
-    }
-
-    public void desconectarSC(SensorData s, CenterData c){
-        desconectarSS(s);
-        c.setCapacitat(c.getCapacitat() - s.getVolumen());
-        c.setnConnexions(c.getnConnexions() - 1);
-        cds.add(c.getKey(), c);
-    }
-
-
-    public void cambiarCable(SensorData s, Object ini, Object dest) {
-        boolean desconectado = false;
-        if (ini instanceof CenterData) {
-            desconectarSC(s, (CenterData) ini);
-            desconectado = true;
-
-        } else if(ini instanceof SensorData) {
-            desconectarSS(s);
-            desconectado = true;
-        }
-        if(desconectado) {
-            if (dest instanceof CenterData) {
-                conectarSC(s, (CenterData)ini);
-
-            } else if(dest instanceof Sensor) {
-                conectarSS(s, (SensorData) ini);
-            }
-        }
-    }
     //================================================================================
     //generador de solucion inicial
     //================================================================================
@@ -156,7 +134,7 @@ public class EstadoProblema {
             while(cds.get(i).getnConnexions()<25 && j != sds.size()){
                 Integer key1 = sds.get(j).getKey();
                 Integer key2 = cds.get(i).getKey();
-                connectionsMap.put(key1,key2);
+                connectionsMap.put(key1,key2+sds.size()); //las claves de los centros empiezan donde acaban las de los sensores
                 cds.get(i).setnConnexions(cds.get(i).getnConnexions()+1);
                 ++j;
             }
@@ -177,21 +155,26 @@ public class EstadoProblema {
         for(Integer k: connectionsMap.keySet()){
             System.out.println(k + " está conectado a " + connectionsMap.get(k));
         }
+        showconnections();
     }
     //================================================================================
     // Auxiliars, Setters, Getters
     //================================================================================
-
-    HashMap<Integer, Integer> getConnectionsMap() {
+    public void showconnections(){
+        for(Integer k: connectionsMap.keySet()){
+            System.out.println(k + " está conectado a " + connectionsMap.get(k));
+        }
+    }
+    public HashMap<Integer, Integer> getConnectionsMap() {
         return this.connectionsMap;
     }
 
     //por qué lo coge de el array de sensor data y no de la clase Sensores?
-    IA.Red.Sensor getSensorAt(Integer i) {
+    public IA.Red.Sensor getSensorAt(Integer i) {
         return sds.get(i).getSensor();
     }
 
-    SensorData getSensorDataAt(Integer i) {
+    public SensorData getSensorDataAt(Integer i) {
         return sds.get(i);
     }
 }

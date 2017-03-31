@@ -27,7 +27,7 @@ public class GoalTest {
     public double calculateCost(Object aState) {
         EstadoProblema state = (EstadoProblema) aState;
         double returnValue = 0;
-        HashMap<Integer, Integer> sensorMap = state.getSensorMap();
+        HashMap<Integer, Integer> sensorMap = state.getConnectionsMap();
         Iterator it = sensorMap.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry entrada = (Map.Entry)it.next();

@@ -5,7 +5,7 @@ import IA.Red.Centro;
 public class CenterData {
     private Centro centro = new Centro(0, 0);
     private Integer key = 0;
-    private Integer capacitat = 0;
+    private Integer volumen = 0;
     private Integer nConnexions = 0;
 
     CenterData(Centro c, Integer key) {
@@ -29,8 +29,8 @@ public class CenterData {
         this.centro = centro;
     }
 
-    public void setCapacitat(Integer capacitat) {
-        this.capacitat = capacitat;
+    public void setVolumen(Integer volumen) {
+        this.volumen = volumen;
     }
 
     public void setnConnexions(Integer nConnexions) {
@@ -45,8 +45,8 @@ public class CenterData {
         return this.centro.getCoordY();
     }
 
-    public Integer getCapacitat() {
-        return capacitat;
+    public Integer getVolumen() {
+        return volumen;
     }
 
     public Integer getnConnexions() {
