@@ -18,11 +18,16 @@ public class SuccesorFunction {
         EstadoProblema state = (EstadoProblema) stateP;
         HashMap<Integer,Integer> conections = state.getConnectionsMap();
         for(Integer i: conections.keySet()) {
-            for(Integer j: connections.keySet()) {
+            for(Integer j: conections.keySet()) {
                 if(i != j) {
-                    state.cambiarCable(i, j);
+                    Integer z = conections.get(i);
+                    state.changecable(i, j);
                     retval.add(state);
-                    state.cambiarCable(i, j);
+                    state.changecable(i, z);
+                    /* el otro operando */
+                    state.switchcables(i, j);
+                    retval.add(state);
+                    state.switchcables(i, j);
                 }
             }
         }
