@@ -6,17 +6,25 @@ import java.util.Objects;
 import java.util.List;
 
 public class SuccesorFunction {
+    public ArrayList retval;
+    
     public List getSuccessors(Object state) {
-        ArrayList retval = new ArrayList();
-        EstadoProblema ep = (EstadoProblema) state;
-
-        //generar un estado sucesor
-        //recorrer hashmap intercambiando conexiones entre sensores
-        HashMap<Integer,Integer> conections = ep.getConnectionsMap();
-        //aqui va una iteración del hashmap generando sucesores (retval.add(succ))
-        for(Integer k: conections.keySet()) {
-
-        }
+        retval.clear();
+        getSuccessorsAux(state);
         return retval;
+    }
+    
+    public List getSuccessorsAux(Object stateP) {
+        EstadoProblema state = (EstadoProblema) stateP;
+        HashMap<Integer,Integer> conections = state.getConnectionsMap();
+        for(Integer i: conections.keySet()) {
+            for(Integer j: connections.keySet()) {
+                if(i != j) {
+                    state.cambiarCable(i, j);
+                    retval.add(state);
+                    state.cambiarCable(i, j);
+                }
+            }
+        }
     }
 }
