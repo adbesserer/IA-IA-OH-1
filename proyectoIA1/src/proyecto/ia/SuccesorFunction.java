@@ -46,10 +46,4 @@ public class SuccesorFunction {
         }
     }
 
-
-    public static double acceptanceProbability(int currentH, int neighbourH, double temp){
-        if(neighbourH < currentH) return 1.0;
-        return Math.exp((currentH - neighbourH) / temp);
-    }
-
 }

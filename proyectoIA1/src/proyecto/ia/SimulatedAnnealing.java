@@ -9,7 +9,7 @@ public class SimulatedAnnealing {
     private double coolingRate = 0.003;
 
     public EstadoProblema getBestSolution(){
-        return null;
+
     }
 
     public void setTemp(double newTemp) {

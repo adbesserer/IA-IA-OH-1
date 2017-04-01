@@ -21,14 +21,14 @@ public class HillClimbing {
 
     public EstadoProblema getBestSolutionPartial(ArrayList retval, EstadoProblema ep){
         ArrayList<EstadoProblema> arraySolutions = ((ArrayList<EstadoProblema>) retval);
-        //double bestCost = ep.getHeuristic();
+        double bestCost = ep.coste_total();
         int bestSolution = -1;
 
         for(int i = 0; i<arraySolutions.size(); ++i){
-            /*if(arraySolutions.get(i).getHeuristic() < bestCost){
+            if(arraySolutions.get(i).coste_total() < bestCost){
                 bestSolution = i;
-                bestCost = arraySolutions.get(i).getHeuristic();
-            }*/
+                bestCost = arraySolutions.get(i).coste_total();
+            }
         }
 
         if(bestSolution == -1) return ep;
