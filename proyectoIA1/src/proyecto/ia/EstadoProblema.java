@@ -247,6 +247,7 @@ public class EstadoProblema {
             if(u < sds.size() && --ge[connectionsMap.get(u)] == 0)
                 s.push(connectionsMap.get(u));
         }
+
         //recorrer L actualizando los volumenes de datos
         for(Integer i : L){
             if(i<sds.size()){ //solo recorremos sensores
