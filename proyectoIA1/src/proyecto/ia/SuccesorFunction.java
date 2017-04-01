@@ -1,7 +1,5 @@
 package proyecto.ia;
 
-import org.omg.CORBA.INTERNAL;
-import sun.management.snmp.util.SnmpTableCache;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -268,6 +268,30 @@ public class EstadoProblema {
             }
         }
     }
+
+    /**
+     *
+     * @return coste total de todas las conexiones en el estado actual
+     */
+    public double coste_total(){
+        int suma = 0;
+        for(Integer k : connectionsMap.keySet()){
+            Integer keyDest = connectionsMap.get(k);
+            pair coordORIG = new pair(sds.get(k).getCoordX(), sds.get(k).getCoordY());
+            pair coordDEST;
+            if(keyDest>= sds.size()){ //el destino es un centro
+                keyDest -= sds.size();
+                coordDEST = new pair (cds.get(keyDest).getCoordX(), cds.get(keyDest).getCoordY());
+                keyDest += sds.size();
+            }else{
+                coordDEST = new pair (sds.get(keyDest).getCoordX(), sds.get(keyDest).getCoordY());
+            }
+            double distancia = Math.sqrt(( Math.pow(coordORIG.x-coordDEST.x,2) + Math.pow(coordORIG.y-coordDEST.y,2)));
+            double cost = Math.pow(distancia,2) * sds.get(k).getVolumen();
+            suma+=cost;
+        }
+        return suma;
+    }
     //================================================================================
     // Auxiliars, Setters, Getters
     //================================================================================

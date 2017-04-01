@@ -14,6 +14,7 @@ public class Main {
             System.out.println("List of Volumes going through the nodes: ");
             ep.compute_volumes();
             ep.showconnections();
+            System.out.println("Total cost: " + ep.coste_total());
             System.out.println("Write a command (e.g. change or switch");
             command = new String(sc.next());
             if(command.equals("change")) {
