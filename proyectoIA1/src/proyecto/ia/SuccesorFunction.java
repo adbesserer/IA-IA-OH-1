@@ -26,7 +26,7 @@ public class SuccesorFunction {
         getSuccessorsAux(state);
         return retval;
     }
-    
+
     public void getSuccessorsAux(Object stateP) {
         EstadoProblema state = (EstadoProblema) stateP;
         HashMap<Integer,Integer> conections = state.getConnectionsMap();
