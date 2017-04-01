@@ -3,7 +3,6 @@ package proyecto.ia;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
 import java.util.List;
 
 public class SuccesorFunction {
