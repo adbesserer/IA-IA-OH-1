@@ -309,7 +309,7 @@ public class EstadoProblema {
                 if (++i < n)
                     sd = sortedsensors.get(i);
             }
-
+        if(i== conectados5.size()) conectados2 = conectados5; //si no hay sensores de 2, conectamos los de 1 a los de 5
             while (i < n && sd.getCapacidad() == 1) { // conectar a los sensores de 2
                 int u = 0;
                 while (conectados2.get(u).getnConnexions() == 3) ++u;
@@ -326,6 +326,7 @@ public class EstadoProblema {
                 }
                 if (++i < n)
                     sd = sortedsensors.get(i);
+
             }
         }
     }
