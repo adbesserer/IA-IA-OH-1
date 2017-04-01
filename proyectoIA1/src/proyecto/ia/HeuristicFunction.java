@@ -16,10 +16,11 @@ public class HeuristicFunction {
         4- Es poden connectar sensors a un altre que excedeixin la capacitat, però aixo fa
            que puji el cost del cable i no el volum.
          */
-        return 1.0;
+        Integer penalty = 1;
+        return areAllSensorsConnected((EstadoProblema)n)*penalty;
     }
 
-    public Boolean areAllSensorsConnected(EstadoProblema state) {
+    public Integer areAllSensorsConnected(EstadoProblema state) {
         this.sensorsFound.clear();
         HashMap<Integer, Integer> connections = state.getConnectionsMap();
         for(int i = 0; i < state.sds.size(); i++) {
@@ -29,8 +30,7 @@ public class HeuristicFunction {
             Iterator it = sensorsNotExplored.iterator();
             this.areAllSensorsConnectedAux((Integer) it.next(), connections, state.sds.size());
         }
-        if(sensorsFound.size() == state.sds.size()) return true;
-        else return false;
+        return  (state.sds.size() - sensorsFound.size());
     }
 
     public Boolean areAllSensorsConnectedAux(Integer key, HashMap<Integer, Integer> connections, Integer nSensors) {
