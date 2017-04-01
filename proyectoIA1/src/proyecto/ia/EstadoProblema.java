@@ -7,6 +7,9 @@ import java.security.Key;
 import java.util.Scanner;
 import java.util.*;
 
+/**
+ * La clase que representa el estado del problema
+ */
 public class EstadoProblema {
     public ArrayList<CenterData> cds = new ArrayList<CenterData>();
     public ArrayList<SensorData> sds = new ArrayList<SensorData>();
@@ -19,6 +22,9 @@ public class EstadoProblema {
     // Creadora
     //================================================================================
 
+    /**
+     * creadora por defecto, pedirá que se introduzcan las variables del problema
+     */
     public EstadoProblema(){
         Scanner sc = new Scanner(System.in);
 
@@ -63,6 +69,12 @@ public class EstadoProblema {
         }
         Output();
     }
+
+    /**
+     * Inicializa el estado del problema con un número determinado de sensores y centros
+     * @param nsens
+     * @param ncents
+     */
     public EstadoProblema(int nsens, int ncents){
         if(nsens < 1 || ncents < 1)
                 System.out.println("Tanto el numero de sensores como de centros debe ser > 0");
@@ -237,6 +249,8 @@ public class EstadoProblema {
 
     /**
      * generador de soluciones iniciales alternativo utilizando modulo y aleatoriedad
+     * primero conecta los sensores a los centros distribuidos uniformemente siempre que haya mas sensores que centros
+     * despues conecta los sensores que quedan aleatoriamente a otros sensores
      */
     public void generar_sol_ini_2(){
         ArrayList<Integer> conectados = new ArrayList<>();
@@ -337,11 +351,9 @@ public class EstadoProblema {
         }
     }
     /**
-     *
-     * @return true si los volumenes de datos cumplen las restricciones, false sino
+     * funcion que utiliza un toposort para fijar para cada sensor o centro la cantidad de datos que pasan por el
      */
     public void compute_volumes(){
-        //funcion que utiliza un toposort para fijar para cada sensor o centro la cantidad de datos que pasan por el
         //necesitamos fijar los volumenes a los valores iniciales para recalcularlos:
         for(CenterData cd : cds){
             cd.setVolumen(0);

@@ -7,6 +7,10 @@ heurística usada en el apartado anterior, con el escenario del apartado anterio
 de Hill Climbing. A partir de estos resultados deberéis fijar también la estrategia de generación de la
 solución inicial para el resto de experimentos
  */
+
+/**
+ * Clase que encapsula los datos y métodos del experimento 2
+ */
 public class Experimento2 {
     private final static int nsensores = 100;
     private final static int ncentros = 4;

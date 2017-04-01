@@ -7,6 +7,10 @@ y el de sensores es 100. Deberéis usar el algoritmo de Hill Climbing. Escoged u
 inicialización de entre las que proponéis. A partir de estos resultados deberéis fijar los operadores para
 el resto de experimentos. Pensad que con estas proporciones, se podrán transmitir todos los datos.
  */
+
+/**
+ * Clase que encapsula los métodos y datos necesarios para el experimento 1
+ */
 public class Experimento1 {
     private final static int nsensores = 100;
     private final static int ncentros = 4;
