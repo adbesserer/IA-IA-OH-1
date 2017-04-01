@@ -4,7 +4,7 @@ import java.util.*;
 
 public class HeuristicFunction {
     private Double minCost = Double.MAX_VALUE;
-    private Double maxVTransmissio = 0.0;
+    private Integer maxVTransmissio = 0;
     private Set<Integer> sensorsFound = new HashSet<Integer>();
     private Set<Integer> sensorsNotExplored = new HashSet<Integer>();
 
@@ -14,10 +14,30 @@ public class HeuristicFunction {
         2- Min cost transmissió
         3- Max vol transmissió
         4- Es poden connectar sensors a un altre que excedeixin la capacitat, però aixo fa
-           que puji el cost del cable i no el volum.
+           que puji el cost del cable i no el volum. (checked)
          */
-        Integer penalty = 1;
-        return areAllSensorsConnected((EstadoProblema)n)*penalty;
+
+        Integer penalty = 4;
+        Double returnValue = 0.0;
+        EstadoProblema state = (EstadoProblema) n;
+        Integer volumenTotal = state.volumen_total();
+        Double costeTotal = state.coste_total();
+
+        if(costeTotal < minCost) {
+            this.minCost = costeTotal;
+            returnValue = returnValue - 4;
+        } else {
+            returnValue = returnValue + 4;
+        }
+
+        if(volumenTotal > maxVTransmissio) {
+            this.maxVTransmissio = volumenTotal;
+            returnValue = returnValue - 3;
+        } else {
+            returnValue = returnValue + 3;
+        }
+
+        return areAllSensorsConnected((EstadoProblema)n)*penalty + returnValue;
     }
 
     public Integer areAllSensorsConnected(EstadoProblema state) {
