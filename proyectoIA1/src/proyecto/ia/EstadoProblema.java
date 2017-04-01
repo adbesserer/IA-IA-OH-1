@@ -188,7 +188,7 @@ public class EstadoProblema {
      * solucion inicial: conectar los sensores directamente a los centros mientras haya espacio
      * despues, conectar los sensores a otros sensores ya conectados
      */
-    public void generar_sol_ini(){
+    public void generar_sol_ini_1(){
         int j = 0; // u es el indice del primer sensor desconectado
         for(int i = 0; i != cds.size();++i){
             while(cds.get(i).getnConnexions()<25 && j != sds.size()){
@@ -212,6 +212,13 @@ public class EstadoProblema {
         }
         if(j!= sds.size()) //tenemos un problema: hay sensores que no podemos conectar(no deberia pasar)
             System.out.println("ERROR: HAY SENSORES QUE NO PUEDEN SER CONECTADOS");
+    }
+
+    /**
+     * generador de soluciones iniciales alternativo
+     */
+    public void generar_sol_ini_2(){
+
     }
 
     /**
@@ -271,8 +278,24 @@ public class EstadoProblema {
 
     /**
      *
+     * @return la suma de volumenes de datos que llegan a cada sensor y centro
+     */
+    public int volumen_total(){
+        int suma = 0;
+        for(SensorData sd : sds){
+            suma += sd.getVolumen();
+        }
+        for(CenterData cd : cds){
+            suma += cd.getVolumen();
+        }
+        return suma;
+    }
+
+    /**
+     *
      * @return coste total de todas las conexiones en el estado actual
      */
+
     public double coste_total(){
         compute_volumes();
         int suma = 0;
