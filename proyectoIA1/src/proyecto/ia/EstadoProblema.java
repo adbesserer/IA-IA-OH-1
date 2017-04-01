@@ -2,6 +2,7 @@ package proyecto.ia;
 
 import IA.Red.*;
 
+import javax.swing.plaf.basic.BasicSplitPaneUI;
 import java.security.Key;
 import java.util.Scanner;
 import java.util.*;
@@ -84,6 +85,13 @@ public class EstadoProblema {
     // Operadors
     //================================================================================
 
+    /**
+     *
+     * @param keyS1
+     * @param keyS2
+     * NB: los operadores ya no consideran invalidos los cambios que hacen que un elemento se pase de su volumen maximo,
+     * simplemente lo fijan al maximo y lo que sobra se pierde
+     */
     public void switchcables (Integer keyS1, Integer keyS2){ //intercambiar la cosa a la que apuntan dos sensores
         Integer keydest1,keydest2;
         double volumen1,volumen2;
@@ -91,7 +99,6 @@ public class EstadoProblema {
         keydest2=connectionsMap.get(keyS2);
         volumen1=sds.get(keyS1).getVolumen();
         volumen2=sds.get(keyS2).getVolumen();
-        boolean UNSWITCHABLE = false;
         //do the switching
         Integer aux = connectionsMap.get(keyS1);
         connectionsMap.put(keyS1,connectionsMap.get(keyS2));
@@ -101,22 +108,27 @@ public class EstadoProblema {
         if(keydest1>= sds.size()) { // = es un centro
             keydest1-= sds.size();
             cds.get(keydest1).setVolumen((int) (cds.get(keydest1).getVolumen() + volumen2 - volumen1  ));
-            if(cds.get(keydest1).getVolumen() > 150) UNSWITCHABLE = true;
+            if(cds.get(keydest1).getVolumen() > 150)
+                cds.get(keydest1).setVolumen(150);
             keydest1+=sds.size();
         }else{ //es un sensor
             sds.get(keydest1).setVolumen((int) (sds.get(keydest1).getVolumen() + volumen2 - volumen1  ));
-            if(sds.get(keydest1).getVolumen() > sds.get(keydest1).getCapacidad()*3) UNSWITCHABLE = true;
+            if(sds.get(keydest1).getVolumen() > sds.get(keydest1).getCapacidad()*3)
+                sds.get(keydest1).setVolumen((int)sds.get(keydest1).getCapacidad()*3);
         }
         if(keydest2>= sds.size()) { // = es un centro
             keydest2-= sds.size();
             cds.get(keydest2).setVolumen((int) (cds.get(keydest2).getVolumen() + volumen1 - volumen2  ));
-            if(cds.get(keydest2).getVolumen() > 150) UNSWITCHABLE = true;
+            if(cds.get(keydest2).getVolumen() > 150)
+                cds.get(keydest2).setVolumen(150);
             keydest2+=sds.size();
         }else{ //es un sensor
             sds.get(keydest2).setVolumen((int) (sds.get(keydest2).getVolumen() + volumen1 - volumen2  ));
-            if(sds.get(keydest2).getVolumen() > sds.get(keydest2).getCapacidad()*3) UNSWITCHABLE = true;
+            if(sds.get(keydest2).getVolumen() > sds.get(keydest2).getCapacidad()*3)
+                sds.get(keydest2).setVolumen((int)sds.get(keydest2).getCapacidad()*3);
         }
         //no puedes intercambiar cables entre dos sensores si uno apunta al otro
+        boolean UNSWITCHABLE = false;
         if(connectionsMap.get(keyS2)==keyS2 || connectionsMap.get(keyS2)==keyS2){
             UNSWITCHABLE=true;
             System.out.println("You cannot switch cables if one is connected to the other");
@@ -138,43 +150,44 @@ public class EstadoProblema {
         int vol = sds.get(KeySource).getVolumen();
         //cambio
         Integer OldKey = connectionsMap.get(KeySource);
+        System.out.println("oldkey "+ OldKey);
+        System.out.println("Keydest" +KeyDest);
         connectionsMap.put(KeySource,KeyDest);
 
-
-        boolean UNCHANGEABLE = false;
         //actualizar volumen del nuevo destino
         if(KeyDest >= sds.size()) { // es un centro
+            System.out.println("es un centro");
             KeyDest-=sds.size();
-            cds.get(KeyDest).setVolumen((int) (cds.get(KeyDest).getVolumen() + vol));
-            if(cds.get(KeyDest).getVolumen() > 150) UNCHANGEABLE = true;
+            cds.get(KeyDest).setVolumen((cds.get(KeyDest).getVolumen() + vol));
+            if(cds.get(KeyDest).getVolumen() > 150) {
+                cds.get(KeyDest).setVolumen(150);
+            }
             KeyDest+=sds.size();
         }
         else{
-            sds.get(KeyDest).setVolumen((int) (sds.get(KeyDest).getVolumen() + vol));
-            if(sds.get(KeyDest).getVolumen() > sds.get(KeyDest).getCapacidad()*3) UNCHANGEABLE = true;
+            sds.get(KeyDest).setVolumen((sds.get(KeyDest).getVolumen() + vol));
+            if(sds.get(KeyDest).getVolumen() > sds.get(KeyDest).getCapacidad()*3) {
+                sds.get(KeyDest).setVolumen((int) sds.get(KeyDest).getCapacidad() * 3);
+            }
         }
         //actualizar volumen del viejo destino
         if(OldKey >= sds.size()) { // es un centro
             OldKey-=sds.size();
-            cds.get(OldKey).setVolumen((int) (cds.get(OldKey).getVolumen() - vol));
-            if(cds.get(OldKey).getVolumen() > 150) UNCHANGEABLE = true;
+            cds.get(OldKey).setVolumen((int) (cds.get(OldKey).getVolumen() - vol));;
             OldKey+=sds.size();
         }
         else{
             sds.get(OldKey).setVolumen((int) (sds.get(OldKey).getVolumen() - vol));
-            if(sds.get(OldKey).getVolumen() > sds.get(OldKey).getCapacidad()*3) UNCHANGEABLE = true;
-        }
-        if(UNCHANGEABLE){ //no se ha podido cambiar el cable
-            System.out.println("VOLUME ERROR: cannot change cable");
-            changecable(KeySource,OldKey);
         }
     }
 
     //================================================================================
     //generador de solucion inicial
     //================================================================================
-    //solucion inicial: conectar los sensores directamente a los centros mientras haya espacio
-    //despues, conectar los sensores a otros sensores ya conectados
+    /**
+     * solucion inicial: conectar los sensores directamente a los centros mientras haya espacio
+     * despues, conectar los sensores a otros sensores ya conectados
+     */
     public void generar_sol_ini(){
         int j = 0; // u es el indice del primer sensor desconectado
         for(int i = 0; i != cds.size();++i){
@@ -199,19 +212,60 @@ public class EstadoProblema {
         }
         if(j!= sds.size()) //tenemos un problema: hay sensores que no podemos conectar(no deberia pasar)
             System.out.println("ERROR: HAY SENSORES QUE NO PUEDEN SER CONECTADOS");
-        showconnections();
     }
+
+    /**
+     *
+     * @return true si los volumenes de datos cumplen las restricciones, false sino
+     */
     public void compute_volumes(){
         //funcion que utiliza un toposort para fijar para cada sensor o centro la cantidad de datos que pasan por el
+        //necesitamos fijar los volumenes a los valores iniciales para recalcularlos:
+        for(CenterData cd : cds){
+            cd.setVolumen(0);
+        }
+        for(SensorData sd : sds){
+            sd.setVolumen((int) sd.getCapacidad());
+        }
         //primero generamos la ordenación topológica de los sensores
         Integer ge[] = new Integer[sds.size()+cds.size()];
-        for(int i = 0; i!= sds.size();++i){
+        for(int i = 0;i!=ge.length;++i){    //inicializar vector de incidencias a 0
+            ge[i]=0;
+        }
+        for(int i = 0; i!= sds.size();++i){//rellenar vector de invidencias
             ++ge[connectionsMap.get(i)]; //connectionsmap.get(i) es a lo que apunta el sensor i
         }
-        for(int i = 0;i!=ge.length;++i){
-            System.out.println(ge[i]);
+        Stack<Integer> s = new Stack<>(); //stack que contiene claves de s. y c.
+        for(int u = 0; u != ge.length; ++u){
+            if(ge[u]==0)
+                s.push(u);
         }
-        Stack<Integer> s = new Stack<>();
+        ArrayList<Integer> L = new ArrayList<>(ge.length); //L contiene los elementos en orden topológico
+        while(!s.empty()){
+            int u = s.pop();
+            L.add(u);
+            if(u < sds.size() && --ge[connectionsMap.get(u)] == 0)
+                s.push(connectionsMap.get(u));
+        }
+        //recorrer L actualizando los volumenes de datos
+        for(Integer i : L){
+            if(i<sds.size()){ //solo recorremos sensores
+                int vol = sds.get(i).getVolumen();
+                Integer keyDest = connectionsMap.get(i); //keydest es a lo que esta conectado el sensor i
+                if(keyDest>=sds.size()) { //keyDest es centro
+                    keyDest -= sds.size();
+                    cds.get(keyDest).setVolumen(cds.get(keyDest).getVolumen() + vol);
+                    if (cds.get(keyDest).getVolumen() > 150)
+                        cds.get(keyDest).setVolumen(150);
+                    keyDest += sds.size();
+                }
+                else{//keyDest es sensor
+                    sds.get(keyDest).setVolumen(sds.get(keyDest).getVolumen()+vol);
+                    if(sds.get(keyDest).getVolumen() > (int) (sds.get(keyDest).getCapacidad())*3)
+                        sds.get(keyDest).setVolumen((int)sds.get(keyDest).getCapacidad()*3);
+                }
+            }
+        }
     }
     //================================================================================
     // Auxiliars, Setters, Getters
@@ -227,7 +281,7 @@ public class EstadoProblema {
                 " y su volumen de datos es " + vol);
         }
         for(CenterData cd : cds){
-            System.out.println("El volumen del centro de datos " + cd.getKey() + " es "+ cd.getVolumen());
+            System.out.println("El volumen del centro de datos " + (cd.getKey()+sds.size()) + " es "+ cd.getVolumen());
         }
     }
     public HashMap<Integer, Integer> getConnectionsMap() {
