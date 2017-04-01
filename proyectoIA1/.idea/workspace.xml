@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b956c3b-c829-4606-8284-4c0b7adb9e3f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/proyecto/ia/Experimento1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proyecto/ia/EstadoProblema.java" afterPath="$PROJECT_DIR$/src/proyecto/ia/EstadoProblema.java" />
     </list>
     <list id="7ec4fbd8-dc60-4069-b215-e81334adce50" name="Failed commit: Default" comment="es dirigido o no?" />
     <list id="1e28913d-f68c-42f1-9fd8-761cac08c44a" name="Failed commit: Default (2)" comment="es dirigido o no?" />
@@ -33,16 +35,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EstadoProblema.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EstadoProblema.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proyecto/ia/EstadoProblema.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="155" column="51" lean-forward="false" selection-start-line="155" selection-start-column="51" selection-end-line="155" selection-end-column="51" />
+            <state relative-caret-position="4188">
+              <caret line="339" column="21" lean-forward="true" selection-start-line="339" selection-start-column="21" selection-end-line="339" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#243#255#0" expanded="true" />
                 <element signature="e#311#323#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Experimento1.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/proyecto/ia/Experimento1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="124" lean-forward="false" selection-start-line="28" selection-start-column="124" selection-end-line="28" selection-end-column="124" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -159,6 +171,7 @@
         <option value="$PROJECT_DIR$/src/proyecto/ia/SimulatedAnnealing.java" />
         <option value="$PROJECT_DIR$/src/proyecto/ia/Main.java" />
         <option value="$PROJECT_DIR$/src/proyecto/ia/EstadoProblema.java" />
+        <option value="$PROJECT_DIR$/src/proyecto/ia/Experimento1.java" />
       </list>
     </option>
   </component>
@@ -573,7 +586,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491057012450</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Nueva generadora de soluciones iniciales y menos bugs">
+      <created>1491057052135</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1491057052135</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -619,7 +639,8 @@
     <MESSAGE value="yolo" />
     <MESSAGE value="arregladas unas cuantas cosas y operador implementado" />
     <MESSAGE value="Operadores funcionando al 100%&#10;y funcion de compute_volume implementada (llamarla garantiza que los volumenes son correctos)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Operadores funcionando al 100%&#10;y funcion de compute_volume implementada (llamarla garantiza que los volumenes son correctos)" />
+    <MESSAGE value="Nueva generadora de soluciones iniciales y menos bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nueva generadora de soluciones iniciales y menos bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -632,14 +653,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/proyecto/ia/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/proyecto/ia/CenterData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1081,6 +1094,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/proyecto/ia/EstadoProblema.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4188">
+          <caret line="339" column="21" lean-forward="true" selection-start-line="339" selection-start-column="21" selection-end-line="339" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#243#255#0" expanded="true" />
+            <element signature="e#311#323#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/proyecto/ia/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1089,15 +1114,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proyecto/ia/EstadoProblema.java">
+    <entry file="file://$PROJECT_DIR$/src/proyecto/ia/Experimento1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="155" column="51" lean-forward="false" selection-start-line="155" selection-start-column="51" selection-end-line="155" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#243#255#0" expanded="true" />
-            <element signature="e#311#323#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="420">
+          <caret line="28" column="124" lean-forward="false" selection-start-line="28" selection-start-column="124" selection-end-line="28" selection-end-column="124" />
+          <folding />
         </state>
       </provider>
     </entry>

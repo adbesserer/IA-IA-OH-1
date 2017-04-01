@@ -49,7 +49,6 @@ public class EstadoProblema {
         Sensores ss = new Sensores(nSensors, seed1);
         CentrosDatos cs = new CentrosDatos(nCentros, seed2);
 
-        pair pairVacio = new pair(0, 0);
         for(Integer i = 0; i != ss.size(); ++i){
             Sensor s = ss.get(i);
             SensorData sData = new SensorData(s, i);
@@ -63,6 +62,31 @@ public class EstadoProblema {
             cds.add(i, cData);
         }
         Output();
+    }
+    public EstadoProblema(int nsens, int ncents){
+        if(nsens < 1 || ncents < 1)
+                System.out.println("Tanto el numero de sensores como de centros debe ser > 0");
+        else{
+            Random r = new Random();
+            int seed1 = r.nextInt();
+            int seed2 = r.nextInt();
+            Sensores ss = new Sensores(nsens, seed1);
+            CentrosDatos cs = new CentrosDatos(ncents, seed2);
+
+            for(Integer i = 0; i != ss.size(); ++i){
+                Sensor s = ss.get(i);
+                SensorData sData = new SensorData(s, i);
+                sds.add(i, sData);
+                connectionsMap.put(i, -1);
+            }
+
+            for(Integer i=0; i != cs.size(); ++i){
+                Centro c = cs.get(i);
+                CenterData cData = new CenterData(c, i);
+                cds.add(i, cData);
+            }
+        }
+
     }
 
     //================================================================================
