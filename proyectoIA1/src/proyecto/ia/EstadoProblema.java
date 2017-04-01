@@ -150,13 +150,10 @@ public class EstadoProblema {
         int vol = sds.get(KeySource).getVolumen();
         //cambio
         Integer OldKey = connectionsMap.get(KeySource);
-        System.out.println("oldkey "+ OldKey);
-        System.out.println("Keydest" +KeyDest);
         connectionsMap.put(KeySource,KeyDest);
 
         //actualizar volumen del nuevo destino
         if(KeyDest >= sds.size()) { // es un centro
-            System.out.println("es un centro");
             KeyDest-=sds.size();
             cds.get(KeyDest).setVolumen((cds.get(KeyDest).getVolumen() + vol));
             if(cds.get(KeyDest).getVolumen() > 150) {
@@ -215,10 +212,28 @@ public class EstadoProblema {
     }
 
     /**
-     * generador de soluciones iniciales alternativo
+     * generador de soluciones iniciales alternativo utilizando modulo y aleatoriedad
      */
     public void generar_sol_ini_2(){
-
+        ArrayList<Integer> conectados = new ArrayList<>();
+        for(int i=0; i!=sds.size(); ++i){ //para cada sensor
+            int centro = i % cds.size();
+            if(cds.get(centro).getnConnexions()<25) {
+                conectados.add(i);
+                connectionsMap.put(i, centro + sds.size());
+                cds.get(centro).setnConnexions(cds.get(centro).getnConnexions()+1);
+            }
+            else{
+                Random r = new Random();
+                int sensor = r.nextInt(conectados.size());
+                while(sensor==i || sds.get(sensor).getnConnexions()==3){
+                    sensor = r.nextInt(conectados.size());
+                }
+                conectados.add(i);
+                connectionsMap.put(i,sensor);
+                sds.get(sensor).setnConnexions(sds.get(sensor).getnConnexions()+1);
+            }
+        }
     }
 
     /**
