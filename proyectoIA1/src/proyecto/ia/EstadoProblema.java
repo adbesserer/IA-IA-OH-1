@@ -274,6 +274,7 @@ public class EstadoProblema {
      * @return coste total de todas las conexiones en el estado actual
      */
     public double coste_total(){
+        compute_volumes();
         int suma = 0;
         for(Integer k : connectionsMap.keySet()){
             Integer keyDest = connectionsMap.get(k);
