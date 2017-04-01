@@ -11,7 +11,6 @@ import java.util.List;
 public class SuccesorFunction {
     public ArrayList retval;
 
-
     private Boolean theresCycle(Integer i, Integer j, EstadoProblema ep){
         Integer size = (Integer) ep.sds.size();
         while(j != i && j < size){
@@ -47,42 +46,6 @@ public class SuccesorFunction {
         }
     }
 
-    public EstadoProblema getSuccessorSA(Object stateP){
-        EstadoProblema state = (EstadoProblema) stateP;
-        HashMap<Integer, Integer> conections = state.getConnectionsMap();
-
-        double temp = 10000;
-        double coolingRate = 0.003;
-
-        while(temp > 1){
-            ArrayList newStates = (ArrayList) getSuccessors(state); // !!!
-
-        }
-
-
-    }
-
-    public void simulatingAnnealing(Object State){
-        double temp = 10000;
-        double coolingRate = 0.003;
-
-        EstadoProblema bestState = (EstadoProblema) State;
-
-        while(temp > 1){
-            EstadoProblema newState = new EstadoProblema();
-
-
-            if(acceptanceProbability(currentH, neighbourH, temp) > Math.random()){
-                State = newState;
-            }
-
-            if(State.getHeuristic() < bestState.getHeuristic()){
-                bestState = (EstadoProblema) State;
-            }
-            temp *= 1-coolingRate;
-        }
-
-    }
 
     public static double acceptanceProbability(int currentH, int neighbourH, double temp){
         if(neighbourH < currentH) return 1.0;
