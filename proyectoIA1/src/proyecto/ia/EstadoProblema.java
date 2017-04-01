@@ -261,6 +261,81 @@ public class EstadoProblema {
     }
 
     /**
+     * generador de soluciones alternativo que intenta perder poco volumen
+     * los sensores de 5 -> centro, los de 2 ->5 y los de 1->2
+     */
+    public void generar_sol_ini_3() {
+        ArrayList<SensorData> conectados5 = new ArrayList<>();
+        ArrayList<SensorData> conectados2 = new ArrayList<>();
+        ArrayList<SensorData> conectados1 = new ArrayList<>();
+        ArrayList<SensorData> sortedsensors = new ArrayList<>(sds);
+        sortedsensors.sort(new sdComparator());
+        int i = 0; //i = indice del sensor en sortedsensors
+        int n = sortedsensors.size();
+        SensorData sd = sortedsensors.get(i);
+        while(i < n && sd.getCapacidad()==5){ //conectar a los centros
+            int centro = sd.getKey() % cds.size();
+            if(cds.get(centro).getnConnexions()<25) {
+                conectados5.add(sd);
+                connectionsMap.put(sd.getKey(), centro + sds.size());
+                cds.get(centro).setnConnexions(cds.get(centro).getnConnexions()+1);
+            }
+            else {
+                int u = 0;
+                while(conectados5.get(u).getnConnexions() == 3)++u;
+                connectionsMap.put(sd.getKey(), conectados5.get(u).getKey());
+                conectados5.get(u).setnConnexions(conectados5.get(u).getnConnexions()+1);
+                conectados5.add(sd);
+            }
+            if(++i < n)
+                sd = sortedsensors.get(i);
+        }
+        if(i==0) generar_sol_ini_2(); //si no hay sensores con 5 de captura, cambiamos de estrategia
+        else {
+            while (i < n && sd.getCapacidad() == 2) { //conectar a los sensores de 5
+                int u = 0;
+                while (conectados5.get(u).getnConnexions() == 3) ++u;
+                if (u < conectados5.size()) {
+                    connectionsMap.put(sd.getKey(), conectados5.get(u).getKey());
+                    conectados5.get(u).setnConnexions(conectados5.get(u).getnConnexions() + 1);
+                    conectados2.add(sd);
+                } else {
+                    int j = 0;
+                    while (conectados2.get(j).getnConnexions() == 3) ++j;
+                    connectionsMap.put(sd.getKey(), conectados2.get(j).getKey());
+                    conectados2.get(j).setnConnexions(conectados2.get(j).getnConnexions() + 1);
+                    conectados2.add(sd);
+                }
+                if (++i < n)
+                    sd = sortedsensors.get(i);
+            }
+
+            while (i < n && sd.getCapacidad() == 1) { // conectar a los sensores de 2
+                int u = 0;
+                while (conectados2.get(u).getnConnexions() == 3) ++u;
+                if (u < conectados2.size()) {
+                    connectionsMap.put(sd.getKey(), conectados2.get(u).getKey());
+                    conectados2.get(u).setnConnexions(conectados2.get(u).getnConnexions() + 1);
+                    conectados1.add(sd);
+                } else {
+                    int j = 0;
+                    while (conectados1.get(j).getnConnexions() == 3) ++j;
+                    connectionsMap.put(sd.getKey(), conectados1.get(j).getKey());
+                    conectados1.get(j).setnConnexions(conectados1.get(j).getnConnexions() + 1);
+                    conectados1.add(sd);
+                }
+                if (++i < n)
+                    sd = sortedsensors.get(i);
+            }
+        }
+    }
+    public class sdComparator implements Comparator<SensorData> {
+        @Override
+        public int compare(SensorData sd1, SensorData sd2) {
+            return (int)(sd2.getCapacidad() - sd1.getCapacidad());
+        }
+    }
+    /**
      *
      * @return true si los volumenes de datos cumplen las restricciones, false sino
      */
@@ -314,6 +389,7 @@ public class EstadoProblema {
             }
         }
     }
+
 
     /**
      *

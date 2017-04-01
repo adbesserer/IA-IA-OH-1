@@ -26,4 +26,7 @@ public class Experimento2 {
     public void testGen2(){     //comprobar los resultados del segundo generador de soluciones iniciales
 
     }
+    public void testGen3(){     //comprobar los resultados del tercer generador de soluciones iniciales
+
+    }
 }

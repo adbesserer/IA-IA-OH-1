@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         EstadoProblema ep = new EstadoProblema();
-        ep.generar_sol_ini_2();
+        ep.generar_sol_ini_3();
 
         Scanner sc = new Scanner(System.in);
         String command;
