@@ -37,30 +37,26 @@ public class HillClimbing {
      * @param ep Estado inicial de los cuales se sacan sucesores.
      * @return Devuelve el mejor estado local.
      */
-    private EstadoProblema getBestSolutionPartial(ArrayList retval, EstadoProblema ep){
+    private EstadoProblema getBestSolutionPartial(ArrayList retval, EstadoProblema ep) {
         ArrayList<EstadoProblema> arraySolutions = ((ArrayList<EstadoProblema>) retval);
         double bestCost = ep.coste_total();
         int bestSolution = -1;
 
-        for(int i = 0; i<arraySolutions.size(); ++i){
+        //System.out.println("DISTANCE"+);
 
-            if(arraySolutions.get(i).coste_total() < bestCost){
+        for (int i = 0; i < arraySolutions.size(); ++i) {
+
+            if (arraySolutions.get(i).coste_total() < bestCost) {
                 bestSolution = i;
                 bestCost = arraySolutions.get(i).coste_total();
             }
         }
-        if(bestSolution == -1){
+        if (bestSolution == -1) {
             return ep;
-        }
-        else{
+        } else {
             System.out.println("NUEVA SOLUCION MEJOR");
             arraySolutions.get(bestSolution).showconnections();
             return arraySolutions.get(bestSolution);
         }
     }
-
-    private void Out(){
-        System.out.println("CENTICERDA");
-    }
-
 }
