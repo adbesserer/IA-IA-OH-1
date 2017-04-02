@@ -48,7 +48,7 @@ public class Main {
             int volumenFinal = ep.volumen_total();
 
             System.out.println("Costes antes y después: " +costeInicial+ " "+ costeFinal+
-                                "\n Volumenes antes y después: " + volumenInicial +" " +  volumenFinal);
+                                "\nVolumenes antes y después: " + volumenInicial +" " +  volumenFinal);
             while(true);
         }
     }
