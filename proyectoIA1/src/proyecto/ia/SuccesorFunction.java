@@ -69,7 +69,7 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
                     }
                 }
             }
-            for(Integer j = 0; j < (state.sds.size() + state.cds.size(); j++) {
+            for(Integer j = 0; j < (state.sds.size() + state.cds.size()); j++) {
                 /* change cable */
                 if(i != j) {
                     state.changecable(i, j);
