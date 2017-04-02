@@ -57,7 +57,6 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
         HashMap<Integer,Integer> conections = state.getConnectionsMap();
         for(Integer i: conections.keySet()) {
             for(Integer j: conections.keySet()) {
-
                 if(i != j) {
                     System.out.println("Switching:\n"+i+" "+conections.get(i)+"\n"+j+" "+conections.get(j));
                     /* switch cable */
@@ -76,11 +75,38 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
                 /* change cable */
                 if(i != j) {
                     System.out.println("Changing:\n"+i+" "+conections.get(i)+" "+j);
-                    state.changecable(i, j);
-                    if(!theresCycle(i, j, state)) {
-                        state.compute_volumes();
-                        retval.add(state);
-                        state.showconnections();
+                    if(j >= state.sds.size()) { //destino es un centro
+                        if(state.cds.get(j - state.sds.size()).getnConnexions() < 25) {
+                            int z = state.getConnectionsMap().get(i);
+                            if(z >= state.sds.size()) {
+                                state.cds.get(z - state.sds.size()).setnConnexions(state.cds.get(z - state.sds.size()).getnConnexions() - 1);
+                            } else {
+                                state.sds.get(z).setnConnexions(state.sds.get(z).getnConnexions() - 1);
+                            }
+                            state.changecable(i, j);
+                            state.cds.get(j - state.sds.size()).setnConnexions(state.cds.get(j - state.sds.size()).getnConnexions() + 1);
+                            if(!theresCycle(i, j, state)) {
+                                state.compute_volumes();
+                                retval.add(state);
+                                state.showconnections();
+                            }
+                        }
+                    } else { //destino es un sensor
+                        if(state.sds.get(j).getnConnexions() < 3) {
+                            int z = state.getConnectionsMap().get(i);
+                            if(z >= state.sds.size()) {
+                                state.cds.get(z - state.sds.size()).setnConnexions(state.cds.get(z - state.sds.size()).getnConnexions() - 1);
+                            } else {
+                                state.sds.get(z).setnConnexions(state.sds.get(z).getnConnexions() - 1);
+                            }
+                            state.changecable(i, j);
+                            state.sds.get(j).setnConnexions(state.sds.get(j).getnConnexions() + 1);
+                            if(!theresCycle(i, j, state)) {
+                                state.compute_volumes();
+                                retval.add(state);
+                                state.showconnections();
+                            }
+                        }
                     }
                     state = (EstadoProblema) stateP;
                 }
