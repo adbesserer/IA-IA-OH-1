@@ -2,6 +2,7 @@ package proyecto.ia;
 
 
 import java.util.*;
+import java.util.ArrayList;
 
 /**
  * La clase SimulatedAnnealing, itera por los sucesores posibles hasta
@@ -50,9 +51,8 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
      * Post: Dado el estado parámetro y usando los operadores, devolverá todos los estados
      * sucesores posibles.
      * @param stateP Parámetro que representa el estado actual con el que trabajar.
-     * @return Devuelve el conjunto de sucesores del estado parametro state.
      */
-    public void getSuccessorsAux(Object stateP) {
+    private void getSuccessorsAux(Object stateP) {
         EstadoProblema state = (EstadoProblema) stateP;
         HashMap<Integer,Integer> conections = state.getConnectionsMap();
         for(Integer i: conections.keySet()) {

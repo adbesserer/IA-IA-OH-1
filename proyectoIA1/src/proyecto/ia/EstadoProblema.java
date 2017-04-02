@@ -71,9 +71,9 @@ public class EstadoProblema {
     }
 
     /**
-     * Inicializa el estado del problema con un número determinado de sensores y centros
-     * @param nsens
-     * @param ncents
+     * Inicializa el estado del problema con un número determinado de sensores y centros.
+     * @param nsens Parámetro que indica el numero de sensores.
+     * @param ncents Parámetro que indica el numero de centros.
      */
     public EstadoProblema(int nsens, int ncents){
         if(nsens < 1 || ncents < 1)
@@ -123,8 +123,8 @@ public class EstadoProblema {
 
     /**
      *
-     * @param keyS1
-     * @param keyS2
+     * @param keyS1 Parámetro que indica uno de los dos sensores a los cual cambiar el cable con otro.
+     * @param keyS2 Parámetro que indica uno de los dos sensores a los cual cambiar el cable con otro.
      * NB: los operadores ya no consideran invalidos los cambios que hacen que un elemento se pase de su volumen maximo,
      * simplemente lo fijan al maximo y lo que sobra se pierde
      */
@@ -179,8 +179,8 @@ public class EstadoProblema {
     /**
      * pre: KeySource is the key of a sensor and KeyDest is the key of a sensor or center
      * post: KeySource is connected to KeyDest
-     * @param KeySource
-     * @param KeyDest
+     * @param KeySource Parámetro que indica el sensor al cual cambiar el cable.
+     * @param KeyDest Parámetro que indica la estructura el cual el cable estará conectado.
      */
     public void changecable(Integer KeySource, Integer KeyDest){  //el sensor Keysource pasa a estar conectado a keydest
         int vol = sds.get(KeySource).getVolumen();
@@ -276,7 +276,7 @@ public class EstadoProblema {
 
     /**
      * generador de soluciones alternativo que intenta perder poco volumen
-     * los sensores de 5 -> centro, los de 2 ->5 y los de 1->2
+     * los sensores de 5 a un centro, los de 2 a los de 5 y los de 1 a los de 2
      */
     public void generar_sol_ini_3() {
         ArrayList<SensorData> conectados5 = new ArrayList<>();
