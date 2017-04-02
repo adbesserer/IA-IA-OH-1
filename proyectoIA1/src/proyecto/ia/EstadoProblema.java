@@ -76,10 +76,25 @@ public class EstadoProblema {
      * @param nsens Parámetro que indica el numero de sensores.
      * @param ncents Parámetro que indica el numero de centros.
      */
-    public EstadoProblema(int nsens, int ncents){
-        if(nsens < 1 || ncents < 1)
-                System.out.println("Tanto el numero de sensores como de centros debe ser > 0");
-        else{
+    public EstadoProblema(int nsens, int ncents) {
+        if (nsens < 1 || ncents < 1) {
+            System.out.println("Tanto el numero de sensores como de centros debe ser > 0. Introduce nuevos.");
+            int newNsens = 0;
+            Scanner sc = new Scanner(System.in);
+            while (newNsens < 1) {
+                System.out.println("Introduce un valor mayor que cero.");
+                newNsens = sc.nextInt();
+            }
+            int newNcents = 0;
+            while (newNcents < 1) {
+                System.out.println("Introduce un valor mayor que cero.");
+                newNcents = sc.nextInt();
+            }
+            EstadoProblema stateAux = new EstadoProblema(newNsens, newNcents);
+            this.cds = stateAux.cds;
+            this.sds = stateAux.sds;
+            this.connectionsMap = stateAux.getConnectionsMap();
+        } else {
             Random r = new Random();
             int seed1 = r.nextInt();
             int seed2 = r.nextInt();
