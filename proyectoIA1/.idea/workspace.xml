@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b956c3b-c829-4606-8284-4c0b7adb9e3f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/EstadoProblema.class" afterPath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/EstadoProblema.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/HeuristicFunction.class" afterPath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/HeuristicFunction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/Main.class" afterPath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/pair.class" afterPath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/pair.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proyecto/ia/HillClimbing.java" afterPath="$PROJECT_DIR$/src/proyecto/ia/HillClimbing.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proyecto/ia/Main.java" afterPath="$PROJECT_DIR$/src/proyecto/ia/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proyecto/ia/SimulatedAnnealing.java" afterPath="$PROJECT_DIR$/src/proyecto/ia/SimulatedAnnealing.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proyecto/ia/SuccesorFunction.java" afterPath="$PROJECT_DIR$/src/proyecto/ia/SuccesorFunction.java" />
     </list>
     <list id="7ec4fbd8-dc60-4069-b215-e81334adce50" name="Failed commit: Default" comment="es dirigido o no?" />
@@ -44,7 +37,7 @@
       <file leaf-file-name="EstadoProblema.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proyecto/ia/EstadoProblema.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1098">
+            <state relative-caret-position="2160">
               <caret line="125" column="19" lean-forward="false" selection-start-line="125" selection-start-column="19" selection-end-line="125" selection-end-column="19" />
               <folding />
             </state>
@@ -54,7 +47,7 @@
       <file leaf-file-name="HeuristicFunction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proyecto/ia/HeuristicFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-698">
+            <state relative-caret-position="90">
               <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
@@ -74,11 +67,9 @@
       <file leaf-file-name="SimulatedAnnealing.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proyecto/ia/SimulatedAnnealing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="29" column="93" lean-forward="false" selection-start-line="29" selection-start-column="93" selection-end-line="29" selection-end-column="93" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="36">
+              <caret line="2" column="31" lean-forward="false" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,8 +77,8 @@
       <file leaf-file-name="SuccesorFunction.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/proyecto/ia/SuccesorFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="864">
-              <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+            <state relative-caret-position="128">
+              <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -137,9 +128,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="57" />
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1309" />
-    <option name="height" value="744" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -157,6 +148,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -190,8 +183,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -214,8 +205,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/proyecto/ia/EstadoProblema.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/proyecto/ia/SuccesorFunction.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -678,23 +668,29 @@
       <option name="project" value="LOCAL" />
       <updated>1491055701390</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Operadores funcionando al 100%&#10;y funcion de compute_volume implementada (llamarla garantiza que los volumenes son correctos)&#10;y Hill Climbing / Simulated Annealing realizadas en clase. Falta observar si funcionan.&#10;Realizada documentación para algunas clases en Javadoc">
+      <created>1491132425423</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1491132425423</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="57" y="24" width="1309" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="57" y="-4" width="1309" height="772" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.4973262" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6687307" sideWeight="0.5046656" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20897833" sideWeight="0.49533436" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0371517" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1006192" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -711,6 +707,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.4973262" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -728,7 +725,8 @@
     <MESSAGE value="Operadores funcionando al 100%&#10;y funcion de compute_volume implementada (llamarla garantiza que los volumenes son correctos)" />
     <MESSAGE value="Operadores funcionando al 100%&#10;y funcion de compute_volume implementada (llamarla garantiza que los volumenes son correctos)&#10;y Hill Climbing / Simulated Annealing en clases. Llaman a SuccessorFunction" />
     <MESSAGE value="Operadores funcionando al 100%&#10;y funcion de compute_volume implementada (llamarla garantiza que los volumenes son correctos)&#10;y Hill Climbing / Simulated Annealing realizadas en clase. Falta observar si funcionan." />
-    <option name="LAST_COMMIT_MESSAGE" value="Operadores funcionando al 100%&#10;y funcion de compute_volume implementada (llamarla garantiza que los volumenes son correctos)&#10;y Hill Climbing / Simulated Annealing realizadas en clase. Falta observar si funcionan." />
+    <MESSAGE value="Operadores funcionando al 100%&#10;y funcion de compute_volume implementada (llamarla garantiza que los volumenes son correctos)&#10;y Hill Climbing / Simulated Annealing realizadas en clase. Falta observar si funcionan.&#10;Realizada documentación para algunas clases en Javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Operadores funcionando al 100%&#10;y funcion de compute_volume implementada (llamarla garantiza que los volumenes son correctos)&#10;y Hill Climbing / Simulated Annealing realizadas en clase. Falta observar si funcionan.&#10;Realizada documentación para algunas clases en Javadoc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1126,7 +1124,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proyecto/ia/HeuristicFunction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-698">
+        <state relative-caret-position="90">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
@@ -1134,7 +1132,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proyecto/ia/EstadoProblema.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1098">
+        <state relative-caret-position="2160">
           <caret line="125" column="19" lean-forward="false" selection-start-line="125" selection-start-column="19" selection-end-line="125" selection-end-column="19" />
           <folding />
         </state>
@@ -1150,18 +1148,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proyecto/ia/SimulatedAnnealing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="93" lean-forward="false" selection-start-line="29" selection-start-column="93" selection-end-line="29" selection-end-column="93" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="36">
+          <caret line="2" column="31" lean-forward="false" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proyecto/ia/SuccesorFunction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+        <state relative-caret-position="128">
+          <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
           <folding />
         </state>
       </provider>

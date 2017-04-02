@@ -68,7 +68,7 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
                     int z1 = conections.get(i);
                     int z2 = conections.get(j);
                     state.switchcables(i, j);
-                    if(!theresCycle(i, z2, state) || !theresCycle(j, z1, state)) {
+                    if(!theresCycle(i, z2, state) && !theresCycle(j, z1, state)) {
                         state.showconnections();
                         retval.add(state);
                         state = (EstadoProblema) stateP;
