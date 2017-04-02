@@ -33,7 +33,7 @@ public class Main {
             }*/
 
             ////////////////////////////////////////////////////////////////////////////
-            //MAMASO Y EL CARBASO lol xd
+            //MAMASO Y EL CARBASO lol xd lmao tse tung
             ////////////////////////////////////////////////////////////////////////////
             //System.out.println("1. HILL CLIMBING\n2. SIMULATED ANNEALING");
             HillClimbing hc = new HillClimbing();
