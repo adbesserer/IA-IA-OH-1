@@ -14,6 +14,8 @@ import java.util.*;
 public class SuccesorFunction implements aima.search.framework.SuccessorFunction{
     public ArrayList retval = new ArrayList<>();
 
+    SuccesorFunction(){}
+
     /**
      * Pre: El estado problema puede tener un ciclo después del cambio de cable.
      * Post: devuelve TRUE si existe ahora un ciclo, FALSE si no hay ninguno.
@@ -57,13 +59,20 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
             for(Integer j: conections.keySet()) {
                 if(i != j) {
                     state.changecable(i, j);
-                    //ver si se crea un ciclo
-                    if(!theresCycle(i, j, state)) retval.add(state);
-                    state = (EstadoProblema) stateP;
+                    if(!theresCycle(i, j, state)) {
+                        retval.add(state);
+                        state.showconnections();
+                        state = (EstadoProblema) stateP;
+                    }
                     /* el otro operando */
+                    int z1 = conections.get(i);
+                    int z2 = conections.get(j);
                     state.switchcables(i, j);
-                    retval.add(state);
-                    state = (EstadoProblema) stateP;
+                    if(!theresCycle(i, z2, state) || !theresCycle(j, z1, state)) {
+                        state.showconnections();
+                        retval.add(state);
+                        state = (EstadoProblema) stateP;
+                    }
                 }
             }
         }
