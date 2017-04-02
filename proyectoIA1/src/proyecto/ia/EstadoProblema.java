@@ -165,7 +165,7 @@ public class EstadoProblema {
         }
         //no puedes intercambiar cables entre dos sensores si uno apunta al otro
         boolean UNSWITCHABLE = false;
-        if(connectionsMap.get(keyS2)==keyS2 || connectionsMap.get(keyS2)==keyS2){
+        if(connectionsMap.get(keyS2)==keyS2 || connectionsMap.get(keyS1)==keyS1){
             UNSWITCHABLE=true;
             System.out.println("You cannot switch cables if one is connected to the other");
         }
