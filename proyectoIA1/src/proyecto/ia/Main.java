@@ -6,8 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
         EstadoProblema ep = new EstadoProblema();
-        ep.generar_sol_ini_3();
-
+        ep.generar_sol_ini_1();
+        double a = ep.coste_total();
         Scanner sc = new Scanner(System.in);
         String command;
         while(true) {
@@ -32,16 +32,21 @@ public class Main {
             }*/
 
             ////////////////////////////////////////////////////////////////////////////
-            //MAM
+            //MAMASO Y EL CARBASO
             ////////////////////////////////////////////////////////////////////////////
-
+            //System.out.println("1. HILL CLIMBING\n2. SIMULATED ANNEALING");
             HillClimbing hc = new HillClimbing();
 
             ep = hc.getBestSolution(ep);
 
+            System.out.println("\n\n\nAQUI ESTA");
             ep.Output();
 
             ep.showconnections();
+
+            double b = ep.coste_total();
+
+            System.out.println("COSTES TOTALES\n"+a+"\n"+b+"\n---------------------------");
             while(true);
         }
     }

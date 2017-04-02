@@ -43,15 +43,15 @@ public class HillClimbing {
         int bestSolution = -1;
 
         for(int i = 0; i<arraySolutions.size(); ++i){
-            /*System.out.println("SUCESOR POSIBLE NUMERO:  "+i);
-            arraySolutions.get(i).showconnections();*/
 
             if(arraySolutions.get(i).coste_total() < bestCost){
                 bestSolution = i;
                 bestCost = arraySolutions.get(i).coste_total();
             }
         }
-        if(bestSolution == -1) return ep;
+        if(bestSolution == -1){
+            return ep;
+        }
         else{
             System.out.println("NUEVA SOLUCION MEJOR");
             arraySolutions.get(bestSolution).showconnections();

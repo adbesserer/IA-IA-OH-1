@@ -57,27 +57,32 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
         HashMap<Integer,Integer> conections = state.getConnectionsMap();
         for(Integer i: conections.keySet()) {
             for(Integer j: conections.keySet()) {
+
                 if(i != j) {
+                    System.out.println("Switching:\n"+i+" "+conections.get(i)+"\n"+j+" "+conections.get(j));
                     /* switch cable */
                     int z1 = conections.get(i);
                     int z2 = conections.get(j);
                     state.switchcables(i, j);
                     if(!theresCycle(i, z2, state) && !theresCycle(j, z1, state)) {
+                        state.compute_volumes();
                         state.showconnections();
                         retval.add(state);
-                        state = (EstadoProblema) stateP;
                     }
+                    state = (EstadoProblema) stateP;
                 }
             }
             for(Integer j = 0; j < (state.sds.size() + state.cds.size()); j++) {
                 /* change cable */
                 if(i != j) {
+                    System.out.println("Changing:\n"+i+" "+conections.get(i)+" "+j);
                     state.changecable(i, j);
                     if(!theresCycle(i, j, state)) {
+                        state.compute_volumes();
                         retval.add(state);
                         state.showconnections();
-                        state = (EstadoProblema) stateP;
                     }
+                    state = (EstadoProblema) stateP;
                 }
             }
         }
