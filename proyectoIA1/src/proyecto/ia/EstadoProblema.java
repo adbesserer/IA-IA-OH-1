@@ -129,51 +129,50 @@ public class EstadoProblema {
      * simplemente lo fijan al maximo y lo que sobra se pierde
      */
     public void switchcables (Integer keyS1, Integer keyS2){ //intercambiar la cosa a la que apuntan dos sensores
-        System.out.println("SWITCHING NIGGA");
-        Integer keydest1,keydest2;
-        double volumen1,volumen2;
-        keydest1=connectionsMap.get(keyS1);
-        keydest2=connectionsMap.get(keyS2);
-        volumen1=sds.get(keyS1).getVolumen();
-        volumen2=sds.get(keyS2).getVolumen();
-        //do the switching
-        Integer aux = connectionsMap.get(keyS1);
-        connectionsMap.put(keyS1,connectionsMap.get(keyS2));
-        connectionsMap.put(keyS2,aux);
-
-        //cambiar volumenes
-        if(keydest1>= sds.size()) { // = es un centro
-            keydest1-= sds.size();
-            cds.get(keydest1).setVolumen((int) (cds.get(keydest1).getVolumen() + volumen2 - volumen1  ));
-            if(cds.get(keydest1).getVolumen() > 150)
-                cds.get(keydest1).setVolumen(150);
-            keydest1+=sds.size();
-        }else{ //es un sensor
-            sds.get(keydest1).setVolumen((int) (sds.get(keydest1).getVolumen() + volumen2 - volumen1  ));
-            if(sds.get(keydest1).getVolumen() > sds.get(keydest1).getCapacidad()*3)
-                sds.get(keydest1).setVolumen((int)sds.get(keydest1).getCapacidad()*3);
-        }
-        if(keydest2>= sds.size()) { // = es un centro
-            keydest2-= sds.size();
-            cds.get(keydest2).setVolumen((int) (cds.get(keydest2).getVolumen() + volumen1 - volumen2  ));
-            if(cds.get(keydest2).getVolumen() > 150)
-                cds.get(keydest2).setVolumen(150);
-            keydest2+=sds.size();
-        }else{ //es un sensor
-            sds.get(keydest2).setVolumen((int) (sds.get(keydest2).getVolumen() + volumen1 - volumen2  ));
-            if(sds.get(keydest2).getVolumen() > sds.get(keydest2).getCapacidad()*3)
-                sds.get(keydest2).setVolumen((int)sds.get(keydest2).getCapacidad()*3);
-        }
-        //no puedes intercambiar cables entre dos sensores si uno apunta al otro
-        boolean UNSWITCHABLE = false;
         if(connectionsMap.get(keyS2)==keyS2 || connectionsMap.get(keyS1)==keyS1){
-            UNSWITCHABLE=true;
             System.out.println("You cannot switch cables if one is connected to the other");
-        }
-        //check if switching was correct, else undo
-        if(UNSWITCHABLE){
-            System.out.println("ERROR: cannot switch cables");
-            switchcables(keyS1,keyS2);
+        }else {
+            System.out.println("SWITCHING NIGGA");
+            Integer keydest1, keydest2;
+            double volumen1, volumen2;
+            keydest1 = connectionsMap.get(keyS1);
+            keydest2 = connectionsMap.get(keyS2);
+            volumen1 = sds.get(keyS1).getVolumen();
+            volumen2 = sds.get(keyS2).getVolumen();
+            //do the switching
+            Integer aux = connectionsMap.get(keyS1);
+            connectionsMap.put(keyS1, connectionsMap.get(keyS2));
+            connectionsMap.put(keyS2, aux);
+
+            //cambiar volumenes
+            if (keydest1 >= sds.size()) { // = es un centro
+                keydest1 -= sds.size();
+                cds.get(keydest1).setVolumen((int) (cds.get(keydest1).getVolumen() + volumen2 - volumen1));
+                if (cds.get(keydest1).getVolumen() > 150)
+                    cds.get(keydest1).setVolumen(150);
+                keydest1 += sds.size();
+            } else { //es un sensor
+                sds.get(keydest1).setVolumen((int) (sds.get(keydest1).getVolumen() + volumen2 - volumen1));
+                if (sds.get(keydest1).getVolumen() > sds.get(keydest1).getCapacidad() * 3)
+                    sds.get(keydest1).setVolumen((int) sds.get(keydest1).getCapacidad() * 3);
+            }
+            if (keydest2 >= sds.size()) { // = es un centro
+                keydest2 -= sds.size();
+                cds.get(keydest2).setVolumen((int) (cds.get(keydest2).getVolumen() + volumen1 - volumen2));
+                if (cds.get(keydest2).getVolumen() > 150)
+                    cds.get(keydest2).setVolumen(150);
+                keydest2 += sds.size();
+            } else { //es un sensor
+                sds.get(keydest2).setVolumen((int) (sds.get(keydest2).getVolumen() + volumen1 - volumen2));
+                if (sds.get(keydest2).getVolumen() > sds.get(keydest2).getCapacidad() * 3)
+                    sds.get(keydest2).setVolumen((int) sds.get(keydest2).getCapacidad() * 3);
+            }
+            //no puedes intercambiar cables entre dos sensores si uno apunta al otro
+            boolean UNSWITCHABLE = false;
+            if (connectionsMap.get(keyS2) == keyS2 || connectionsMap.get(keyS1) == keyS1) {
+                UNSWITCHABLE = true;
+                System.out.println("You cannot switch cables if one is connected to the other");
+            }
         }
     }
 
