@@ -6,8 +6,9 @@ public class Main {
 
     public static void main(String[] args) {
         EstadoProblema ep = new EstadoProblema();
-        ep.generar_sol_ini_1();
-        double a = ep.coste_total();
+        ep.generar_sol_ini_2();
+        double costeInicial = ep.coste_total();
+        int volumenInicial = ep.volumen_total();
         Scanner sc = new Scanner(System.in);
         String command;
         while(true) {
@@ -32,11 +33,10 @@ public class Main {
             }*/
 
             ////////////////////////////////////////////////////////////////////////////
-            //MAMASO Y EL CARBASO
+            //MAMASO Y EL CARBASO lol xd
             ////////////////////////////////////////////////////////////////////////////
             //System.out.println("1. HILL CLIMBING\n2. SIMULATED ANNEALING");
             HillClimbing hc = new HillClimbing();
-
             ep = hc.getBestSolution(ep);
 
             System.out.println("\n\n\nAQUI ESTA");
@@ -44,9 +44,11 @@ public class Main {
 
             ep.showconnections();
 
-            double b = ep.coste_total();
+            double costeFinal = ep.coste_total();
+            int volumenFinal = ep.volumen_total();
 
-            System.out.println("COSTES TOTALES\n"+a+"\n"+b+"\n---------------------------");
+            System.out.println("Costes antes y después: " +costeInicial+ " "+ costeFinal+
+                                "\n Volumenes antes y después: " + volumenInicial +" " +  volumenFinal);
             while(true);
         }
     }
