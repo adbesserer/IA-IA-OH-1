@@ -171,12 +171,6 @@ public class EstadoProblema {
                 if (sds.get(keydest2).getVolumen() > sds.get(keydest2).getCapacidad() * 3)
                     sds.get(keydest2).setVolumen((int) sds.get(keydest2).getCapacidad() * 3);
             }
-            //no puedes intercambiar cables entre dos sensores si uno apunta al otro
-            boolean UNSWITCHABLE = false;
-            if (connectionsMap.get(keyS2) == keyS2 || connectionsMap.get(keyS1) == keyS1) {
-                UNSWITCHABLE = true;
-                System.out.println("You cannot switch cables if one is connected to the other");
-            }
         }
     }
 

@@ -36,10 +36,9 @@ public class Main {
             ////////////////////////////////////////////////////////////////////////////
 
             HillClimbing hc = new HillClimbing();
-            System.out.println("hola?");
+
             ep = hc.getBestSolution(ep);
 
-            System.out.println("AQUI ESTA");
             ep.Output();
 
             ep.showconnections();
