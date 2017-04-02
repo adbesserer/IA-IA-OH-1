@@ -9,6 +9,7 @@ import java.util.*;
 
 /**
  * La clase que representa el estado del problema
+ * @author Alejandro Domínguez Besserer
  */
 public class EstadoProblema {
     public ArrayList<CenterData> cds = new ArrayList<CenterData>();
@@ -131,7 +132,10 @@ public class EstadoProblema {
     public void switchcables (Integer keyS1, Integer keyS2){ //intercambiar la cosa a la que apuntan dos sensores
         if(connectionsMap.get(keyS2)==keyS1 || connectionsMap.get(keyS1)==keyS2){
             System.out.println("You cannot switch cables if one is connected to the other");
-        }else{
+        }else if(connectionsMap.get(keyS1) == connectionsMap.get(keyS2)){
+            System.out.println("The sensors are connected to the same thing");
+        }
+        else{
             System.out.println("SWITCHING NIGGA");
             Integer keydest1, keydest2;
             double volumen1, volumen2;
