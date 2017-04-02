@@ -16,9 +16,9 @@ public class Main {
             ep.showconnections();
             System.out.println("Total cost: " + ep.coste_total());
             System.out.println("Total volume: " + ep.volumen_total() + "Mb/s");
-            System.out.println("Write a command (e.g. change or switch");
-            command = new String(sc.next());
-            if(command.equals("change")) {
+            //System.out.println("Write a command (e.g. change or switch");
+            //command = new String(sc.next());
+            /*if(command.equals("change")) {
                 System.out.println("Introduce la clave del sensor y la del nuevo destino del cable");
                 Integer k1 = new Integer(sc.nextInt());
                 Integer k2 = new Integer(sc.nextInt());
@@ -29,7 +29,21 @@ public class Main {
                 Integer k1 = new Integer(sc.nextInt());
                 Integer k2 = new Integer(sc.nextInt());
                 ep.switchcables(k1,k2);
-            }
+            }*/
+
+            ////////////////////////////////////////////////////////////////////////////
+            //MAM
+            ////////////////////////////////////////////////////////////////////////////
+
+            HillClimbing hc = new HillClimbing();
+            System.out.println("hola?");
+            ep = hc.getBestSolution(ep);
+
+            System.out.println("AQUI ESTA");
+            ep.Output();
+
+            ep.showconnections();
+            while(true);
         }
     }
 }
