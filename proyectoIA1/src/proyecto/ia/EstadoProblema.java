@@ -129,6 +129,7 @@ public class EstadoProblema {
      * simplemente lo fijan al maximo y lo que sobra se pierde
      */
     public void switchcables (Integer keyS1, Integer keyS2){ //intercambiar la cosa a la que apuntan dos sensores
+        System.out.println("SWITCHING NIGGA");
         Integer keydest1,keydest2;
         double volumen1,volumen2;
         keydest1=connectionsMap.get(keyS1);
