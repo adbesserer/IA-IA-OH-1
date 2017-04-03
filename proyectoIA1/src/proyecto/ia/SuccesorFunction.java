@@ -66,7 +66,8 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
                     if(!theresCycle(i, z2, state) && !theresCycle(j, z1, state)) {
                         state.compute_volumes();
                         state.showconnections();
-                        retval.add(state);
+                        EstadoProblema auxState = new EstadoProblema(state);
+                        retval.add(auxState);
                     }
                     state = (EstadoProblema) stateP;
                 }
@@ -87,7 +88,8 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
                             state.cds.get(j - state.sds.size()).setnConnexions(state.cds.get(j - state.sds.size()).getnConnexions() + 1);
                             if(!theresCycle(i, j, state)) {
                                 state.compute_volumes();
-                                retval.add(state);
+                                EstadoProblema auxState = new EstadoProblema(state);
+                                retval.add(auxState);
                                 state.showconnections();
                             }
                         }
@@ -103,7 +105,8 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
                             state.sds.get(j).setnConnexions(state.sds.get(j).getnConnexions() + 1);
                             if(!theresCycle(i, j, state)) {
                                 state.compute_volumes();
-                                retval.add(state);
+                                EstadoProblema auxState = new EstadoProblema(state);
+                                retval.add(auxState);
                                 state.showconnections();
                             }
                         }
