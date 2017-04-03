@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2b956c3b-c829-4606-8284-4c0b7adb9e3f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proyecto/ia/HillClimbing.java" afterPath="$PROJECT_DIR$/src/proyecto/ia/HillClimbing.java" />
     </list>
     <list id="7ec4fbd8-dc60-4069-b215-e81334adce50" name="Failed commit: Default" comment="es dirigido o no?" />
     <list id="1e28913d-f68c-42f1-9fd8-761cac08c44a" name="Failed commit: Default (2)" comment="es dirigido o no?" />
@@ -40,7 +39,7 @@
             <state relative-caret-position="270">
               <caret line="30" column="114" lean-forward="false" selection-start-line="30" selection-start-column="114" selection-end-line="30" selection-end-column="114" />
               <folding>
-                <marker date="1491231823358" expanded="true" signature="2489:2558" ph="{...}" />
+                <marker date="1491231943735" expanded="true" signature="2569:2638" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -85,11 +84,9 @@
       <file leaf-file-name="HeuristicFunction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proyecto/ia/HeuristicFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-432">
-              <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-              <folding>
-                <element signature="e#215#224#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-462">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,10 +94,10 @@
       <file leaf-file-name="SuccesorFunction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proyecto/ia/SuccesorFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1500">
-              <caret line="101" column="53" lean-forward="false" selection-start-line="101" selection-start-column="53" selection-end-line="101" selection-end-column="53" />
+            <state relative-caret-position="1575">
+              <caret line="106" column="53" lean-forward="false" selection-start-line="106" selection-start-column="53" selection-end-line="106" selection-end-column="53" />
               <folding>
-                <marker date="1491220109257" expanded="true" signature="5456:5630" ph="{...}" />
+                <marker date="1491231943732" expanded="true" signature="5668:5810" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -709,7 +706,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491230560552</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="KAIBA YOU'RE SWITCHIN' FOR A BRUISIN'&#10;&#10;LET'S D-D-D-D-D-D-DUEL!">
+      <created>1491231929859</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1491231929859</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -781,9 +785,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding>
-            <element signature="e#215#224#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -792,7 +794,7 @@
         <state relative-caret-position="195">
           <caret line="16" column="15" lean-forward="false" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
           <folding>
-            <marker date="1491220109257" expanded="true" signature="5456:5630" ph="{...}" />
+            <marker date="1491231943732" expanded="true" signature="5668:5810" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -865,9 +867,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding>
-            <element signature="e#215#224#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -876,7 +876,7 @@
         <state relative-caret-position="195">
           <caret line="16" column="15" lean-forward="false" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
           <folding>
-            <marker date="1491220109257" expanded="true" signature="5456:5630" ph="{...}" />
+            <marker date="1491231943732" expanded="true" signature="5668:5810" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -937,9 +937,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding>
-            <element signature="e#215#224#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -948,7 +946,7 @@
         <state relative-caret-position="240">
           <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
           <folding>
-            <marker date="1491220109257" expanded="true" signature="5456:5630" ph="{...}" />
+            <marker date="1491231943732" expanded="true" signature="5668:5810" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -987,9 +985,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding>
-            <element signature="e#215#224#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -998,7 +994,7 @@
         <state relative-caret-position="51">
           <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
           <folding>
-            <marker date="1491220109257" expanded="true" signature="5456:5630" ph="{...}" />
+            <marker date="1491231943732" expanded="true" signature="5668:5810" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1053,9 +1049,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding>
-            <element signature="e#215#224#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1064,7 +1058,7 @@
         <state relative-caret-position="90">
           <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
           <folding>
-            <marker date="1491220109257" expanded="true" signature="5456:5630" ph="{...}" />
+            <marker date="1491231943732" expanded="true" signature="5668:5810" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1103,9 +1097,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding>
-            <element signature="e#215#224#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,7 +1106,7 @@
         <state relative-caret-position="90">
           <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
           <folding>
-            <marker date="1491220109257" expanded="true" signature="5456:5630" ph="{...}" />
+            <marker date="1491231943732" expanded="true" signature="5668:5810" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1162,10 +1154,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proyecto/ia/SuccesorFunction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="101" column="53" lean-forward="false" selection-start-line="101" selection-start-column="53" selection-end-line="101" selection-end-column="53" />
+        <state relative-caret-position="1575">
+          <caret line="106" column="53" lean-forward="false" selection-start-line="106" selection-start-column="53" selection-end-line="106" selection-end-column="53" />
           <folding>
-            <marker date="1491220109257" expanded="true" signature="5456:5630" ph="{...}" />
+            <marker date="1491231943732" expanded="true" signature="5668:5810" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1188,11 +1180,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proyecto/ia/HeuristicFunction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-432">
-          <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-          <folding>
-            <element signature="e#215#224#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-462">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1237,7 +1227,7 @@
         <state relative-caret-position="270">
           <caret line="30" column="114" lean-forward="false" selection-start-line="30" selection-start-column="114" selection-end-line="30" selection-end-column="114" />
           <folding>
-            <marker date="1491231823358" expanded="true" signature="2489:2558" ph="{...}" />
+            <marker date="1491231943735" expanded="true" signature="2569:2638" ph="{...}" />
           </folding>
         </state>
       </provider>
