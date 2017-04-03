@@ -24,9 +24,9 @@ public class EstadoProblema {
     //================================================================================
 
     public EstadoProblema(EstadoProblema ep){
-        this.cds = ep.cds;
-        this.sds = ep.sds;
-        this.connectionsMap = ep.connectionsMap;
+        this.cds = (ArrayList<CenterData>) ep.cds.clone();
+        this.sds = (ArrayList<SensorData>) ep.sds.clone();
+        this.connectionsMap = (HashMap<Integer, Integer>) ep.connectionsMap.clone();
     }
 
     /**
@@ -122,12 +122,6 @@ public class EstadoProblema {
             }
         }
 
-    }
-
-    public EstadoProblema(EstadoProblema ep){
-        cds = ep.cds;
-        sds = ep.sds;
-        connectionsMap= ep.connectionsMap;
     }
 
     //================================================================================
