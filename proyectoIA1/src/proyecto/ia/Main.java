@@ -9,7 +9,7 @@ public class Main {
         int selection, nexp;
 
         while (true) {
-            System.out.println("ENTER THE NUMBER OF THE EXPERIMENT YOU WANT TO RUN");
+            System.out.println("\nENTER THE NUMBER OF THE EXPERIMENT YOU WANT TO RUN");
             selection = sc.nextInt();
 
             if (selection == 1) {
@@ -32,7 +32,7 @@ public class Main {
 
             }
             if (selection == 3){
-
+                System.out.println("EXPERIMENTO 3: \n");
             }
         }
     }

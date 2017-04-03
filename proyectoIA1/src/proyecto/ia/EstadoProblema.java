@@ -520,38 +520,5 @@ public class EstadoProblema {
         return this.connectionsMap;
     }
 
-    //por qué lo coge de el array de sensor data y no de la clase Sensores?
-    public IA.Red.Sensor getSensorAt(Integer i) {
-        return sds.get(i).getSensor();
-    }
 
-    public SensorData getSensorDataAt(Integer i) {
-        return sds.get(i);
-    }
-
-    public double getDistance(Integer i1, Integer i2){
-        int posx1, posx2, posy1, posy2;
-
-        //KEY 1
-        if(i1 >= sds.size()){ //i1 -> Centro
-            posx1 = cds.get(i1 - sds.size()).getCoordX();
-            posy1 = cds.get(i1 - sds.size()).getCoordY();
-        }
-        else{ //i1 -> Sensor
-            posx1 = sds.get(i1).getCoordX();
-            posy1 = sds.get(i1).getCoordY();
-        }
-
-        //KEY 2
-        if(i2 >= sds.size()){ //i2 -> Centro
-            posx2 = cds.get(i2 - sds.size()).getCoordX();
-            posy2 = cds.get(i2 - sds.size()).getCoordY();
-        }
-        else{ //i2 -> Sensor
-            posx2 = sds.get(i2).getCoordX();
-            posy2 = sds.get(i2).getCoordY();
-        }
-
-        return Math.sqrt(Math.pow((posx1 - posx2), 2) + Math.pow((posy1 - posy2), 2));
-    }
 }
