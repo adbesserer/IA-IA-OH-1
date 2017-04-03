@@ -22,9 +22,7 @@ public class Experimento1 {
 
     public Experimento1() {
         ep = new EstadoProblema(nsensores, ncentros);
-        ep.generar_sol_ini_1();
-        System.out.println("CONFIGURACIÓN INICIAL:");
-        ep.showconnections();
+        ep.generar_sol_ini_3();
         ep.compute_volumes();
         coste_inicial   = ep.coste_total();
         volumen_inicial = ep.volumen_total();
@@ -38,7 +36,7 @@ public class Experimento1 {
 
         System.out.println("La mejora en coste usando sólo el operador de switch cables es :"
                         + (-1)*(coste_final-coste_inicial));
-        System.out.println("La diferencia en volumen es" + (volumen_final-volumen_inicial));
+        System.out.println("La diferencia en volumen es: " + (volumen_final-volumen_inicial));
     }
     public void testChange(){       // comprobar los resultados usando solo el operador change cable
         HillClimbing hc = new HillClimbing();

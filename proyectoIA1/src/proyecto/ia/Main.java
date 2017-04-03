@@ -5,30 +5,36 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        //Experimento 1
-        Experimento1 e1 = new Experimento1();
-        e1.runTests();
+        Scanner sc = new Scanner(System.in);
+        int selection, nexp;
 
+        while (true) {
+            System.out.println("ENTER THE NUMBER OF THE EXPERIMENT YOU WANT TO RUN");
+            selection = sc.nextInt();
 
-        /*EstadoProblema ep = new EstadoProblema();
-        ep.generar_sol_ini_3();
-        double costeInicial = ep.coste_total();
-        int volumenInicial = ep.volumen_total();
-        System.out.println("List of Volumes going through the nodes: ");
+            if (selection == 1) {
+                System.out.println("EXPERIMENTO 1: \n");
+                nexp = 10;
+                for (int i = 1; i != nexp + 1; ++i) {
+                    System.out.println("\nNº DE EJECUCIÓN " + i + "\n");
+                    Experimento1 e1 = new Experimento1();
+                    e1.runTests();
+                }
+            }
+            if (selection == 2) {
+                System.out.println("EXPERIMENTO 2: \n");
+                nexp = 10;
+                for(int i = 1; i!= nexp+1; ++i){
+                    System.out.println("\nNº DE EJECUCIÓN " + i + "\n");
+                    Experimento2 e2 = new Experimento2();
+                    e2.runTests();
+                }
 
-        ep.compute_volumes();
-        ep.showconnections();
-        System.out.println("Total cost: " + ep.coste_total());
-        System.out.println("Total volume: " + ep.volumen_total() + "Mb/s");
+            }
+            if (selection == 3){
 
-        HillClimbing hc = new HillClimbing();
-        ep = hc.getBestSolution(ep);
-        ep.Output();
-        ep.showconnections();
-        double costeFinal = ep.coste_total();
-        int volumenFinal = ep.volumen_total();
-        System.out.println("Costes antes y después: " +costeInicial+ " "+ costeFinal+
-                                "\nVolumenes antes y después: " + volumenInicial +" " +  volumenFinal);
-                                */
+            }
+        }
     }
 }
+

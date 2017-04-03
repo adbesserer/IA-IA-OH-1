@@ -38,7 +38,7 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
 
         while(node < ep.sds.size()){
             if(nodeIsVisited(node, visited)){
-                System.out.println("HAY CICLO");
+                //System.out.println("HAY CICLO");
                 return true;
             }
             visited.add(node);
@@ -77,7 +77,7 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
         for(Integer i: conections.keySet()) {
             for(Integer j: conections.keySet()) {
                 if(i != j && switchcables) {
-                    System.out.println("Switching:\n"+i+" "+conections.get(i)+"\n"+j+" "+conections.get(j));
+                    //System.out.println("Switching:\n"+i+" "+conections.get(i)+"\n"+j+" "+conections.get(j));
                     /* switch cable */
                     state.switchcables(i, j);
                     if(!theresCycle(i, state) && !theresCycle(j, state)) {
@@ -93,7 +93,7 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
             for(Integer j = 0; j < (state.sds.size() + state.cds.size()); j++) {
                 /* change cable */
                 if(i != j && changecable) {
-                    System.out.println("Changing:\n"+i+" "+conections.get(i)+" "+j);
+                    //System.out.println("Changing:\n"+i+" "+conections.get(i)+" "+j);
                     Integer zz = conections.get(i);
                     if(j >= state.sds.size()) { //destino es un centro
                         if(state.cds.get(j - state.sds.size()).getnConnexions() < 25) {

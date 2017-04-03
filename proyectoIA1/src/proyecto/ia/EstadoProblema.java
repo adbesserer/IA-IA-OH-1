@@ -123,6 +123,42 @@ public class EstadoProblema {
         }
 
     }
+    public EstadoProblema(int nsens, int ncents, int seed1, int seed2) {
+        if (nsens < 1 || ncents < 1) {
+            System.out.println("Tanto el numero de sensores como de centros debe ser > 0. Introduce nuevos.");
+            int newNsens = 0;
+            Scanner sc = new Scanner(System.in);
+            while (newNsens < 1) {
+                System.out.println("Introduce un valor mayor que cero.");
+                newNsens = sc.nextInt();
+            }
+            int newNcents = 0;
+            while (newNcents < 1) {
+                System.out.println("Introduce un valor mayor que cero.");
+                newNcents = sc.nextInt();
+            }
+            EstadoProblema stateAux = new EstadoProblema(newNsens, newNcents);
+            this.cds = stateAux.cds;
+            this.sds = stateAux.sds;
+            this.connectionsMap = stateAux.getConnectionsMap();
+        } else {
+            Sensores ss = new Sensores(nsens, seed1);
+            CentrosDatos cs = new CentrosDatos(ncents, seed2);
+
+            for (Integer i = 0; i != ss.size(); ++i) {
+                Sensor s = ss.get(i);
+                SensorData sData = new SensorData(s, i);
+                sds.add(i, sData);
+                connectionsMap.put(i, -1);
+            }
+
+            for (Integer i = 0; i != cs.size(); ++i) {
+                Centro c = cs.get(i);
+                CenterData cData = new CenterData(c, i);
+                cds.add(i, cData);
+            }
+        }
+    }
 
     //================================================================================
     // Output
@@ -153,9 +189,9 @@ public class EstadoProblema {
      */
     public void switchcables (Integer keyS1, Integer keyS2){ //intercambiar la cosa a la que apuntan dos sensores
         if(connectionsMap.get(keyS2)==keyS1 || connectionsMap.get(keyS1)==keyS2){
-            System.out.println("You cannot switch cables if one is connected to the other");
+            //System.out.println("You cannot switch cables if one is connected to the other");
         }else if(connectionsMap.get(keyS1) == connectionsMap.get(keyS2)){
-            System.out.println("The sensors are connected to the same thing");
+            //System.out.println("The sensors are connected to the same thing");
         }
         else{
             Integer keydest1, keydest2;
