@@ -41,6 +41,11 @@ public class Main {
                 Experimento4 e4 = new Experimento4();
                 e4.runTests();
             }
+            if (selection == 6) {
+                System.out.println("EXPERIMENTO 6: \n");
+                Experimento6 e6 = new Experimento6();
+                e6.runTests();
+            }
         }
     }
 }

@@ -1,0 +1,43 @@
+EXPERIMENTO 6: 
+
+/* HILL CLIMBING */
+Nº DE CENTROS = 2; Nº DE SENSORES = 100
+Coste final:95745.0; Volumen final: 460
+Tiempo total: 40s
+	
+Nº DE CENTROS = 4; Nº DE SENSORES = 100
+Coste final:77009.0; Volumen final: 474
+Tiempo total: 43s
+	
+Nº DE CENTROS = 6; Nº DE SENSORES = 100
+Coste final:90764.0; Volumen final: 445
+Tiempo total: 36s
+	
+Nº DE CENTROS = 8; Nº DE SENSORES = 100
+Coste final:64952.0; Volumen final: 519
+Tiempo total: 44s
+	
+Nº DE CENTROS = 10; Nº DE SENSORES = 100
+Coste final:60665.0; Volumen final: 523
+Tiempo total: 44s
+	
+/* SIMULATED ANNEALING */
+Nº DE CENTROS = 2; Nº DE SENSORES = 100
+Coste final:204441.0; Volumen final: 498
+Tiempo total: 39s
+
+Nº DE CENTROS = 4; Nº DE SENSORES = 100
+Coste final:214561.0; Volumen final: 524
+Tiempo total: 39s
+
+Nº DE CENTROS = 6; Nº DE SENSORES = 100
+Coste final:157125.0; Volumen final: 486
+Tiempo total: 41s
+
+Nº DE CENTROS = 8; Nº DE SENSORES = 100
+Coste final:154616.0; Volumen final: 529
+Tiempo total: 42s
+
+Nº DE CENTROS = 10; Nº DE SENSORES = 100
+Coste final:150847.0; Volumen final: 538
+Tiempo total: 41s
