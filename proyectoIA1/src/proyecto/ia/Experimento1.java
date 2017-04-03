@@ -28,7 +28,7 @@ public class Experimento1 {
         volumen_inicial = ep.volumen_total();
     }
 
-    public void testSwitch(){       // comprobar los resultados usando solo el operador switchcables
+    private void testSwitch(){       // comprobar los resultados usando solo el operador switchcables
         HillClimbing hc = new HillClimbing();
         EstadoProblema best = hc.getBestSolution(new EstadoProblema(ep), true, false); //switch= true, change = false
         volumen_final = best.volumen_total();
@@ -38,7 +38,7 @@ public class Experimento1 {
                         + (-1)*(coste_final-coste_inicial));
         System.out.println("La diferencia en volumen es: " + (volumen_final-volumen_inicial));
     }
-    public void testChange(){       // comprobar los resultados usando solo el operador change cable
+    private void testChange(){       // comprobar los resultados usando solo el operador change cable
         HillClimbing hc = new HillClimbing();
         EstadoProblema best = hc.getBestSolution(new EstadoProblema(ep), false, true); //switch= false, change = true
         volumen_final = best.volumen_total();
@@ -48,7 +48,7 @@ public class Experimento1 {
                 + (-1)*(coste_final-coste_inicial));
         System.out.println("La diferencia en volumen es: " + (volumen_final-volumen_inicial));
     }
-    public void testBoth(){         // comprobar los resultados usando ambos operadores: esperamos el mejor rendimiento aqui
+    private void testBoth(){         // comprobar los resultados usando ambos operadores: esperamos el mejor rendimiento aqui
         HillClimbing hc = new HillClimbing();
         EstadoProblema best = hc.getBestSolution(new EstadoProblema(ep), true, true); //switch= true, change = true
         volumen_final = best.volumen_total();
@@ -58,6 +58,10 @@ public class Experimento1 {
                 + (-1)*(coste_final-coste_inicial));
         System.out.println("La diferencia en volumen es: " + (volumen_final-volumen_inicial));
     }
+
+    /**
+     * Función que comienza el Experimento 1.
+     */
     public void runTests(){ // corre los tres tests
         testChange();
         testSwitch();

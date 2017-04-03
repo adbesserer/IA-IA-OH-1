@@ -21,19 +21,19 @@ public class Experimento2 {
     private int volumen_final, seed1, seed2;
 
 
-    public void testGen1() {     //comprobar los resultados del primer generador de soluciones iniciales
+    private void testGen1() {     //comprobar los resultados del primer generador de soluciones iniciales
         ep = new EstadoProblema(nsensores, ncentros,seed1,seed2);
         ep.generar_sol_ini_1();
         run();
         System.out.println("El coste final usando el generador 1 es: " + coste_final + ", y el volumen es: " + volumen_final);
     }
-    public void testGen2(){     //comprobar los resultados del segundo generador de soluciones iniciales
+    private void testGen2(){     //comprobar los resultados del segundo generador de soluciones iniciales
         ep = new EstadoProblema(nsensores, ncentros,seed1,seed2);
         ep.generar_sol_ini_2();
         run();
         System.out.println("El coste final usando el generador 2 es: " + coste_final + ", y el volumen es: " + volumen_final);
     }
-    public void testGen3(){     //comprobar los resultados del tercer generador de soluciones iniciales
+    private void testGen3(){     //comprobar los resultados del tercer generador de soluciones iniciales
         ep = new EstadoProblema(nsensores, ncentros,seed1,seed2);
         ep.generar_sol_ini_3();
         run();
@@ -46,6 +46,9 @@ public class Experimento2 {
         volumen_final = best.volumen_total();
         coste_final = best.coste_total();
     }
+    /**
+     * Función que comienza el Experimento 2.
+     */
     public void runTests(){
         Random r = new Random();
         seed1   = r.nextInt();

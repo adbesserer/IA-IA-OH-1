@@ -20,15 +20,13 @@ public class Experimento4 {
     private double coste_final;
     private int volumen_final, seed1, seed2;
 
+    /**
+     * Función que comienza el Experimento 4.
+     */
     void runTests (){
         Random r = new Random();
         seed1   = r.nextInt();
         seed2   = r.nextInt();
-
-        ep = new EstadoProblema(nsens,ncents,seed1,seed2);
-        ep.generar_sol_ini_3();
-        ep.compute_volumes();
-        System.out.println("coste inicial: "+ep.coste_total()+ "; Volumen inicial: " + ep.volumen_total() + "\n");
 
         for(int i = 0; i!= ntests; ++i){
             long time_start, time_end;

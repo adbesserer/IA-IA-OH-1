@@ -2,7 +2,10 @@ package proyecto.ia;
 
 import IA.Red.Sensor;
 
-//ESTA CLASE NO EXTIENDE SENSOR PORQUE SINÓ DARÁ PROBLEMAS CON LA HERENCIA
+/**
+ * Clase que representa una encapsulación que contiene tanto un sensor, como valores
+ * que lo identifican.
+ */
 public class SensorData {
     private Sensor sensor = new Sensor(0, 0, 0);
     private Integer volumen = 0;

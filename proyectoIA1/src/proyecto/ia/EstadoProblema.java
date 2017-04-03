@@ -9,7 +9,6 @@ import java.util.*;
 
 /**
  * La clase que representa el estado del problema
- * @author Alejandro Domínguez Besserer
  */
 public class EstadoProblema {
     public ArrayList<CenterData> cds = new ArrayList<CenterData>();
@@ -272,7 +271,7 @@ public class EstadoProblema {
     //generador de solucion inicial
     //================================================================================
     /**
-     * solucion inicial: conectar los sensores directamente a los centros mientras haya espacio
+     * Solucion inicial: conectar los sensores directamente a los centros mientras haya espacio
      * despues, conectar los sensores a otros sensores ya conectados.
      */
     public void generar_sol_ini_1(){
@@ -302,7 +301,7 @@ public class EstadoProblema {
     }
 
     /**
-     * generador de soluciones iniciales alternativo utilizando modulo y aleatoriedad
+     * Generador de soluciones iniciales alternativo utilizando modulo y aleatoriedad
      * primero conecta los sensores a los centros distribuidos uniformemente siempre que haya mas sensores que centros
      * despues conecta los sensores que quedan aleatoriamente a otros sensores
      */
@@ -329,7 +328,7 @@ public class EstadoProblema {
     }
 
     /**
-     * generador de soluciones alternativo que intenta perder poco volumen
+     * Generador de soluciones alternativo que intenta perder poco volumen
      * los sensores de 5 a un centro, los de 2 a los de 5 y los de 1 a los de 2
      */
     public void generar_sol_ini_3() {
@@ -399,14 +398,14 @@ public class EstadoProblema {
         }
     }
 
-    public class sdComparator implements Comparator<SensorData> {
+    private class sdComparator implements Comparator<SensorData> {
         @Override
         public int compare(SensorData sd1, SensorData sd2) {
             return (int)(sd2.getCapacidad() - sd1.getCapacidad());
         }
     }
     /**
-     * funcion que utiliza un toposort para fijar para cada sensor o centro la cantidad de datos que pasan por el
+     * Funcion que utiliza un toposort para fijar para cada sensor o centro la cantidad de datos que pasan por el
      */
     public void compute_volumes(){
         //necesitamos fijar los volumenes a los valores iniciales para recalcularlos:
@@ -475,8 +474,7 @@ public class EstadoProblema {
     }
 
     /**
-     *
-     * @return coste total de todas las conexiones en el estado actual
+     * Funcion que representa el coste total de todas las conexiones en el estado actual
      */
 
     public double coste_total(){
@@ -502,6 +500,10 @@ public class EstadoProblema {
     //================================================================================
     // Auxiliars, Setters, Getters
     //================================================================================
+
+    /**
+     * Funcion que muestra las diferentes conexiones entre los elementos, tanto sensores como centros.
+     */
     public void showconnections(){
         for(Integer k: connectionsMap.keySet()){
             int vol;
@@ -516,6 +518,10 @@ public class EstadoProblema {
             System.out.println("El volumen del centro de datos " + (cd.getKey()+sds.size()) + " es "+ cd.getVolumen());
         }
     }
+
+    /**
+     * @return Devuelve el mapa de las diferentes conexiones.
+     */
     public HashMap<Integer, Integer> getConnectionsMap() {
         return this.connectionsMap;
     }

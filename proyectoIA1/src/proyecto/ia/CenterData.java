@@ -2,6 +2,11 @@ package proyecto.ia;
 
 import IA.Red.Centro;
 
+
+/**
+ *  Clase que representa una encapsulación que contiene tanto un centro, como valores
+ *  que lo identifican.
+ */
 public class CenterData {
     private Centro centro = new Centro(0, 0);
     private Integer key = 0;
@@ -9,17 +14,14 @@ public class CenterData {
     private Integer nConnexions = 0;
 
     /**
-     * Post: crea un nuevo objeto CenterData con  centro c y key key
+     * Pre: ---
+     * Post: Crea un nuevo objeto CenterData con  centro c y key key
      * @param c nuevo centro
      * @param key nueva llave
      */
     CenterData(Centro c, Integer key) {
         this.setCentro(c);
         this.setKey(key);
-    }
-
-    public Centro getCentro() {
-        return centro;
     }
 
     public Integer getKey() {

@@ -11,8 +11,6 @@ import java.util.*;
  * la probabilidad de escoger los estados sucesores como mejores. Si el estado
  * sucesor es mejor al aplicarse el heurístico, directamente se considera el
  * mejor estado.
- * @author Miguel Ángel Muñoz
- * @version 1.0
  */
 public class SimulatedAnnealing {
 
