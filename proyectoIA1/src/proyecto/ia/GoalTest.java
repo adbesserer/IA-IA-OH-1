@@ -14,6 +14,12 @@ public class GoalTest {
     //================================================================================
     private Double bestCost = Double.MAX_VALUE;
 
+    /**
+     * Pre: aState es un objeto que representa el estado actual.
+     * Post: devuelve si aState es un subóptimo del problema.
+     * @param aState idealmente es un objeto EstadoProblema que representa el estado actual.
+     * @return si aState es un subóptimo del problema.
+     */
     public boolean isGoalState(Object aState) {
         EstadoProblema ep = (EstadoProblema) aState;
         Double newCost = ep.coste_total();

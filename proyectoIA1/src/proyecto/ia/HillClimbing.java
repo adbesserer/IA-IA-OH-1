@@ -28,6 +28,15 @@ public class HillClimbing {
             estadoProblema = epSol;
         }
     }
+
+    /**
+     * Pre: estadoProblema es el estado actual del grafo de sensores y centros.
+     * Post: Usando el método de Hill Climbing selecciona y devuelve el mejor, con sólo los operadores indicados.
+     * @param estadoProblema Representa el estado actual del grafo.
+     * @param switchcables indica si aplicar el operando swtichcables o no.
+     * @param changecable indica si aplicar el operando changecables o no.
+     * @return
+     */
     public EstadoProblema getBestSolution(EstadoProblema estadoProblema, boolean switchcables, boolean changecable){
         SuccesorFunction sf = new SuccesorFunction();
         EstadoProblema epSol;

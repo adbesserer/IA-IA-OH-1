@@ -8,6 +8,11 @@ public class CenterData {
     private Integer volumen = 0;
     private Integer nConnexions = 0;
 
+    /**
+     * Post: crea un nuevo objeto CenterData con  centro c y key key
+     * @param c nuevo centro
+     * @param key nueva llave
+     */
     CenterData(Centro c, Integer key) {
         this.setCentro(c);
         this.setKey(key);

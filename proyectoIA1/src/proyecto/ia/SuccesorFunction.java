@@ -17,7 +17,7 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
 
     /**
      * Pre: ---
-     * Post: crea un nuevo objeto SuccesorFunction
+     * Post: crea un nuevo objeto SuccesorFunction.
      */
     SuccesorFunction(){}
 
@@ -33,7 +33,7 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
      * Post: devuelve TRUE si existe ahora un ciclo, FALSE si no hay ninguno.
      * @param i nodo del grafo desde donde se ha cambiado un cable.
      * @param ep Estado actual del grafo, incluido con el cambio.
-     * @return Boolean que indica si existe algún ciclo a partir del nodo i
+     * @return Boolean que indica si existe algún ciclo a partir del nodo i.
      */
     private boolean theresCycle(Integer i, EstadoProblema ep){
         Integer node = i;
@@ -63,6 +63,14 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
         return retval;
     }
 
+    /**
+     * Pre: ----
+     * Post: devuelve el conjunto de sucesores del EstadoProblema state.
+     * @param state idealmente un objeto de la clase EstadoProblema.
+     * @param switchcables booleano que indica si usar el operador switchcables.
+     * @param changecable booleano que indica si usar el operador changecable.
+     * @return el conjunto de sucesores de state.
+     */
     public List getSuccessors(Object state, boolean switchcables, boolean changecable) {
         retval.clear();
         getSuccessorsAux(state, switchcables, changecable);
