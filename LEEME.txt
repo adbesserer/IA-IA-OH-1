@@ -4,11 +4,10 @@ siguiente comando:
 java -jar proyectoIA1.jar
 
 
-Solamente existen del proyecto 1 al 4, así que
-introducir otros numeros le llevará a introducir otro.
+Existen todos los experimentos del proyecto menos el 5 y el 7, así que
+introducir estos números le llevará a introducir uno nuevo.
 
 Proyecto creado por:
-
 Dominguez, Alejandro
 Munuera, Adrià
 Muñoz, Miguel Ángel
