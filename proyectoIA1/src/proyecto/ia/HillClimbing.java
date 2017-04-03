@@ -53,9 +53,10 @@ public class HillClimbing {
         int bestSolution = -1;
 
         for (int i = 0; i < arraySolutions.size(); ++i) {
-            if (hf.getHeuristicValue(arraySolutions.get(i)) < bestCost) {
+            double aux = hf.getHeuristicValue(arraySolutions.get(i));
+            if (aux < bestCost) {
                 bestSolution = i;
-                bestCost = hf.getHeuristicValue(arraySolutions.get(i));
+                bestCost = aux;
             }
 
         }

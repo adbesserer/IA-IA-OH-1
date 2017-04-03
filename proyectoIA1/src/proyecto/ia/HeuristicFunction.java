@@ -36,7 +36,6 @@ public class HeuristicFunction {
             this.maxVTransmissio = volumenTotal;
 
         }
-        returnValue = returnValue + areAllSensorsConnected((EstadoProblema)n)*penalty;
         return returnValue;
     }
 
