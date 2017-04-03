@@ -35,8 +35,12 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
         Integer node = i;
         ArrayList<Integer> visited = new ArrayList<>();
         visited.add(node); node = ep.getConnectionsMap().get(node);
+
         while(node < ep.sds.size()){
-            if(nodeIsVisited(node, visited)) return true;
+            if(nodeIsVisited(node, visited)){
+                System.out.println("HAY CICLO");
+                return true;
+            }
             visited.add(node);
             node = ep.getConnectionsMap().get(node);
         }
@@ -95,12 +99,14 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
                             }
 
                             state.cds.get(j - state.sds.size()).setnConnexions(state.cds.get(j - state.sds.size()).getnConnexions() + 1);
+                            state.changecable(i, j);
                             if(!theresCycle(i, state)) {
-                                state.changecable(i, j);
+
                                 state.compute_volumes();
                                 EstadoProblema newState = new EstadoProblema(state);
                                 retval.add(newState);
                             }
+                            state.changecable(i, z);
                         }
                     } else { //destino es un sensor
                         if(state.sds.get(j).getnConnexions() < 3) {
@@ -112,12 +118,13 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
                             }
 
                             state.sds.get(j).setnConnexions(state.sds.get(j).getnConnexions() + 1);
+                            state.changecable(i, j);
                             if(!theresCycle(i, state)) {
-                                state.changecable(i, j);
                                 state.compute_volumes();
                                 EstadoProblema newState = new EstadoProblema(state);
                                 retval.add(newState);
                             }
+                            state.changecable(i, z);
                         }
                     }
                     state.changecable(i, zz);
