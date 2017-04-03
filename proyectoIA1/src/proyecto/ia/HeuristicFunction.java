@@ -2,12 +2,14 @@ package proyecto.ia;
 
 import java.util.*;
 
-public class HeuristicFunction {
-    private Double minCost = Double.MAX_VALUE;
-    private Integer maxVTransmissio = 0;
-    private Set<Integer> sensorsFound = new HashSet<Integer>();
-    private Set<Integer> sensorsNotExplored = new HashSet<Integer>();
+public class HeuristicFunction implements aima.search.framework.HeuristicFunction {
 
+
+    public double getHeuristicValue(Object ep) {
+        return ((EstadoProblema) ep).coste_total();
+    }
+
+    /*
     public double getHeuristicValue(Object n) {
         /* PARAMETRES DE LA FUNCIO HEURISTICA
         1- connexio de tots els sensors -> negaitu si tot connectat, sino, penalty = Valor*n_sensors_desconnectats
@@ -16,7 +18,7 @@ public class HeuristicFunction {
         4- Es poden connectar sensors a un altre que excedeixin la capacitat, però aixo fa
            que puji el cost del cable i no el volum. (checked)
          */
-
+    /*
         Integer penalty = 4;
         Double returnValue = 0.0;
         EstadoProblema state = (EstadoProblema) n;
@@ -65,5 +67,5 @@ public class HeuristicFunction {
             }
         }
         return false;
-    }
+    }*/
 }
