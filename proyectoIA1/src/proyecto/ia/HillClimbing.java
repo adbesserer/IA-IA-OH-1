@@ -6,8 +6,6 @@ import java.util.*;
  * La clase HillClimbing, recoge e itera por todos los estados vecinos
  * que podrían representar una solución desde nuestro estado inicial, y
  * devuelve el mejor estado posible.
- * @author Miguel Ángel Muñoz
- * @version 1.0
  */
 public class HillClimbing {
     public HeuristicFunction hf = new HeuristicFunction();
@@ -35,7 +33,6 @@ public class HillClimbing {
      * @param estadoProblema Representa el estado actual del grafo.
      * @param switchcables indica si aplicar el operando swtichcables o no.
      * @param changecable indica si aplicar el operando changecables o no.
-     * @return
      */
     public EstadoProblema getBestSolution(EstadoProblema estadoProblema, boolean switchcables, boolean changecable){
         SuccesorFunction sf = new SuccesorFunction();

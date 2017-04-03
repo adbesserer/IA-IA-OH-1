@@ -9,8 +9,6 @@ import java.util.ArrayList;
  * que una probabilidad obliga a elegir al actual sucesor con el que trabajar
  * como mejor solución. Esta probabilidad disminuye iteración a iteración.
  * Siempre que se encuentre una solución mejor, se escoge directamente.
- * @author Adrià Munuera
- * @version 1.0
  */
 public class SuccesorFunction implements aima.search.framework.SuccessorFunction{
     public ArrayList retval = new ArrayList();

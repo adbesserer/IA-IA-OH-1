@@ -2,6 +2,10 @@ package proyecto.ia;
 
 import java.util.*;
 
+/**
+ * Clase que genera el valor heuristico a usar en los diferentes experimentos.
+ */
+
 public class HeuristicFunction {
     private Double minCost;
     private Integer maxVTransmissio;

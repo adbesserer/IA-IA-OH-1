@@ -22,6 +22,9 @@ public class Experimento3 {
     private double[] TEMPS = {12000,15000,18000,22000,25000,28000,31000,34000,37000,40000};
     private double cr = 0.0375;
 
+    /**
+     * Función que comienza el Experimento 3.
+     */
     public void runTests(){
         Random r = new Random();
         seed1   = r.nextInt();
