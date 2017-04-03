@@ -8,26 +8,28 @@ public class HeuristicFunction {
     private Set<Integer> sensorsFound = new HashSet<Integer>();
     private Set<Integer> sensorsNotExplored = new HashSet<Integer>();
 
+    /**
+     * Pre: ---
+     * Post: crea un nuevo objeto HeuristicFunction
+     */
     public HeuristicFunction() {
         this.maxVTransmissio = 0;
         this.minCost = 0.0;
     }
 
-    /* PARAMETRES DE LA FUNCIO HEURISTICA
-        1- connexio de tots els sensors -> negaitu si tot connectat, sino, penalty = Valor*n_sensors_desconnectats
-        2- Min cost transmissió
-        3- Max vol transmissió
-        4- Es poden connectar sensors a un altre que excedeixin la capacitat, però aixo fa
-           que puji el cost del cable i no el volum. (checked)
-    */
-
+    /**
+     * Pre: ----
+     * Post: devuevle el valor heurístico para el EstadoProblema n
+     * @param n debería ser un EstadoProblema
+     * @return double que indica el valor heurístico de n
+     */
     public double getHeuristicValue(Object n) {
-        Integer penalty = 5; //++connectivitat
+        /* Integer penalty = 5; */
         Double returnValue = 0.0;
         EstadoProblema state = (EstadoProblema) n;
         Integer volumenTotal = state.volumen_total();
         Double costeTotal = state.coste_total();
-        returnValue = (costeTotal - this.minCost)/1000; //modificant aquest parametre --cost --volum
+        returnValue = (costeTotal - this.minCost)/1000; /* modificant aquest parametre modifiquem cost i volum */
         if(costeTotal < minCost) {
             this.minCost = costeTotal;
         }
@@ -39,6 +41,12 @@ public class HeuristicFunction {
         return returnValue;
     }
 
+    /**
+     * Pre: ---
+     * Post: devuelve el número de sensores desconectados de un centro
+     * @param state
+     * @return devuelve el número de sensores desconectados de un centro
+     */
     public Integer areAllSensorsConnected(EstadoProblema state) {
         this.sensorsFound.clear();
         HashMap<Integer, Integer> connections = state.getConnectionsMap();
@@ -52,6 +60,15 @@ public class HeuristicFunction {
         return  (state.sds.size() - sensorsFound.size());
     }
 
+    /**
+     * Pre: ---
+     * Post: devuelve si el sensor identificado con la llave key está conectado a un centro
+     * @param key llave para el sensor que tratamos si tiene camino hasta un centro
+     * @param connections mapa de conexiones
+     * @param nSensors número de sensores
+     * @param deep profundidad para parar la recursividad
+     * @return devuelve si el sensor identificado con la llave key está conectado a un centro
+     */
     public Boolean areAllSensorsConnectedAux(Integer key, HashMap<Integer, Integer> connections, Integer nSensors, Integer deep) {
         if(deep == 0) return false;
         else {

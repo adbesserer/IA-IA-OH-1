@@ -15,6 +15,10 @@ import java.util.ArrayList;
 public class SuccesorFunction implements aima.search.framework.SuccessorFunction{
     public ArrayList retval = new ArrayList();
 
+    /**
+     * Pre: ---
+     * Post: crea un nuevo objeto SuccesorFunction
+     */
     SuccesorFunction(){}
 
     private boolean nodeIsVisited(Integer node, ArrayList<Integer> visited){
