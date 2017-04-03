@@ -50,12 +50,20 @@ public class SimulatedAnnealing {
     public EstadoProblema getBestSolution(EstadoProblema state){
         SuccesorFunction sf = new SuccesorFunction();
         while(temp > 1){
-            List retval = sf.getSuccessors(state);
+            List retval = sf.getSuccessors(state, true, true);
 
-            EstadoProblema newState = ((ArrayList<EstadoProblema>) retval).get(0);
-            if (acceptanceProbability(state.coste_total(), newState.coste_total()) > Math.random()) {
-                if(state.coste_total() > newState.coste_total()) state = newState;
+
+            for(int i=0; i<retval.size(); ++i) {
+                EstadoProblema newState = new EstadoProblema(((ArrayList<EstadoProblema>) retval).get(i));
+                if(i == retval.size()-1) state = newState;
+                else if (acceptanceProbability(state.coste_total(), newState.coste_total()) > Math.random()) {
+                    if (state.coste_total() > newState.coste_total()){
+                        state = newState;
+                        i = retval.size();
+                    }
+                }
             }
+
 
             this.temp *= 1-coolingRate;
         }
