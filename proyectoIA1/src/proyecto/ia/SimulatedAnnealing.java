@@ -16,8 +16,13 @@ import java.util.*;
  */
 public class SimulatedAnnealing {
 
-    private double temp = 10000.0;
-    private double coolingRate = 0.003;
+    private double temp;
+    private double coolingRate;
+
+    public SimulatedAnnealing(double temp, double coolingRate){
+        this.temp = temp;
+        this.coolingRate = coolingRate;
+    }
 
     /**
      * Pre: StateH y newStateH no pueden ser el mismo.
