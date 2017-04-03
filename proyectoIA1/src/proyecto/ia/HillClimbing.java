@@ -28,6 +28,16 @@ public class HillClimbing {
             estadoProblema = epSol;
         }
     }
+    public EstadoProblema getBestSolution(EstadoProblema estadoProblema, boolean switchcables, boolean changecable){
+        SuccesorFunction sf = new SuccesorFunction();
+        EstadoProblema epSol;
+        while(true) {
+            List retval = sf.getSuccessors(estadoProblema);
+            epSol = getBestSolutionPartial(((ArrayList) retval), estadoProblema);
+            if(estadoProblema == epSol) return epSol;
+            estadoProblema = epSol;
+        }
+    }
 
     /**
      * Pre: retval contiene los estados sucesores del estado parámetro ep.
