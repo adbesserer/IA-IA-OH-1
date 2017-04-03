@@ -1,0 +1,85 @@
+
+PRESS ENTER TO START EXPERIMENTS
+
+Nº DE EJECUCIÓN 1
+
+La mejora en coste usando sólo el operador de change cable es :1464296.0
+La diferencia en volumen es: -206
+La mejora en coste usando sólo el operador de switch cables es :1461848.0
+La diferencia en volumen es: -132
+La mejora en coste usando ambos operadores es :1491795.0
+La diferencia en volumen es: -155
+Nº DE EJECUCIÓN 2
+
+La mejora en coste usando sólo el operador de change cable es :1177974.0
+La diferencia en volumen es: -156
+La mejora en coste usando sólo el operador de switch cables es :1171443.0
+La diferencia en volumen es: -112
+La mejora en coste usando ambos operadores es :1199479.0
+La diferencia en volumen es: -179
+Nº DE EJECUCIÓN 3
+
+La mejora en coste usando sólo el operador de change cable es :1179161.0
+La diferencia en volumen es: -200
+La mejora en coste usando sólo el operador de switch cables es :1199378.0
+La diferencia en volumen es: -113
+La mejora en coste usando ambos operadores es :1212231.0
+La diferencia en volumen es: -155
+Nº DE EJECUCIÓN 4
+
+La mejora en coste usando sólo el operador de change cable es :1132903.0
+La diferencia en volumen es: -187
+La mejora en coste usando sólo el operador de switch cables es :1143862.0
+La diferencia en volumen es: -105
+La mejora en coste usando ambos operadores es :1162084.0
+La diferencia en volumen es: -151
+Nº DE EJECUCIÓN 5
+
+La mejora en coste usando sólo el operador de change cable es :970483.0
+La diferencia en volumen es: -107
+La mejora en coste usando sólo el operador de switch cables es :1005749.0
+La diferencia en volumen es: -133
+La mejora en coste usando ambos operadores es :1022280.0
+La diferencia en volumen es: -156
+Nº DE EJECUCIÓN 6
+
+La mejora en coste usando sólo el operador de change cable es :1392085.0
+La diferencia en volumen es: -171
+La mejora en coste usando sólo el operador de switch cables es :1404235.0
+La diferencia en volumen es: -93
+La mejora en coste usando ambos operadores es :1421974.0
+La diferencia en volumen es: -165
+Nº DE EJECUCIÓN 7
+
+La mejora en coste usando sólo el operador de change cable es :966229.0
+La diferencia en volumen es: -170
+La mejora en coste usando sólo el operador de switch cables es :995539.0
+La diferencia en volumen es: -124
+La mejora en coste usando ambos operadores es :1011223.0
+La diferencia en volumen es: -163
+Nº DE EJECUCIÓN 8
+
+La mejora en coste usando sólo el operador de change cable es :1148816.0
+La diferencia en volumen es: -234
+La mejora en coste usando sólo el operador de switch cables es :1157155.0
+La diferencia en volumen es: -119
+La mejora en coste usando ambos operadores es :1174910.0
+La diferencia en volumen es: -177
+Nº DE EJECUCIÓN 9
+
+La mejora en coste usando sólo el operador de change cable es :1276178.0
+La diferencia en volumen es: -170
+La mejora en coste usando sólo el operador de switch cables es :1314123.0
+La diferencia en volumen es: -136
+La mejora en coste usando ambos operadores es :1340949.0
+La diferencia en volumen es: -186
+Nº DE EJECUCIÓN 10
+
+La mejora en coste usando sólo el operador de change cable es :763346.0
+La diferencia en volumen es: -187
+La mejora en coste usando sólo el operador de switch cables es :812198.0
+La diferencia en volumen es: -123
+La mejora en coste usando ambos operadores es :832942.0
+La diferencia en volumen es: -167
+
+Process finished with exit code 0
