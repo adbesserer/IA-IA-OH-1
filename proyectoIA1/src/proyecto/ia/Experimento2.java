@@ -15,22 +15,35 @@ public class Experimento2 {
     private final static int nsensores = 100;
     private final static int ncentros = 4;
     private EstadoProblema ep;
-
+    private double coste_inicial, coste_final;
+    private int volumen_inicial, volumen_final;
 
     public Experimento2() {
         ep = new EstadoProblema(nsensores, ncentros);
-        ep.generar_sol_ini_1();
-        System.out.println("CONFIGURACIÓN INICIAL:");
-        ep.showconnections();
     }
 
-    public void testGen1(){     //comprobar los resultados del primer generador de soluciones iniciales
-
+    public void testGen1() {     //comprobar los resultados del primer generador de soluciones iniciales
+        ep.generar_sol_ini_1();
+        run();
+        System.out.println("La mejora en coste y el cambio en volumen con el generador 1 son respectivamente: "
+                            + (coste_final-coste_inicial) + (volumen_final-volumen_inicial));
     }
     public void testGen2(){     //comprobar los resultados del segundo generador de soluciones iniciales
-
+        ep.generar_sol_ini_2();
+        run();
+        System.out.println("La mejora en coste y el cambio en volumen con el generador 1 son respectivamente: "
+                + (coste_final-coste_inicial) + (volumen_final-volumen_inicial));
     }
     public void testGen3(){     //comprobar los resultados del tercer generador de soluciones iniciales
-
+        ep.generar_sol_ini_3();
+        run();
+        System.out.println("La mejora en coste y el cambio en volumen con el generador 1 son respectivamente: "
+                + (coste_final-coste_inicial) + (volumen_final-volumen_inicial));
+    }
+    public void run() {
+        HillClimbing hc = new HillClimbing();
+        EstadoProblema best = hc.getBestSolution(new EstadoProblema(ep), true, true); //switch= false, change = true
+        volumen_final = best.volumen_total();
+        coste_final = best.coste_total();
     }
 }

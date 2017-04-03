@@ -5,7 +5,12 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        EstadoProblema ep = new EstadoProblema();
+        //Experimento 1
+        Experimento1 e1 = new Experimento1();
+        e1.runTests();
+
+
+        /*EstadoProblema ep = new EstadoProblema();
         ep.generar_sol_ini_3();
         double costeInicial = ep.coste_total();
         int volumenInicial = ep.volumen_total();
@@ -24,5 +29,6 @@ public class Main {
         int volumenFinal = ep.volumen_total();
         System.out.println("Costes antes y después: " +costeInicial+ " "+ costeFinal+
                                 "\nVolumenes antes y después: " + volumenInicial +" " +  volumenFinal);
+                                */
     }
 }

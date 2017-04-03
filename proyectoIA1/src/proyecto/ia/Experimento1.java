@@ -44,7 +44,7 @@ public class Experimento1 {
         volumen_final = best.volumen_total();
         coste_final   = best.coste_total();
 
-        System.out.println("La mejora en coste usando sólo el operador de switch cables es :"
+        System.out.println("La mejora en coste usando sólo el operador de change cable es :"
                 + (coste_final-coste_inicial));
         System.out.println("La diferencia en volumen es" + (volumen_final-volumen_inicial));
     }
@@ -54,11 +54,11 @@ public class Experimento1 {
         volumen_final = best.volumen_total();
         coste_final   = best.coste_total();
 
-        System.out.println("La mejora en coste usando sólo el operador de switch cables es :"
+        System.out.println("La mejora en coste usando ambos operadores es :"
                 + (coste_final-coste_inicial));
         System.out.println("La diferencia en volumen es" + (volumen_final-volumen_inicial));
     }
-    public void run(){ // corre los tres tests
+    public void runTests(){ // corre los tres tests
         testChange();
         testSwitch();
         testBoth();
