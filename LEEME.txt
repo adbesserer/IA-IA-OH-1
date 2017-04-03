@@ -1,0 +1,14 @@
+Para usar el proyecto solamente ha de introducir el
+siguiente comando:
+
+java -jar proyectoIA1.jar
+
+
+Solamente existen del proyecto 1 al 4, así que
+introducir otros numeros le llevará a introducir otro.
+
+Proyecto creado por:
+
+Dominguez, Alejandro
+Munuera, Adrià
+Muñoz, Miguel Ángel
