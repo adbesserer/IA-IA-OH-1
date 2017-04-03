@@ -10,7 +10,7 @@ import java.util.*;
  * @version 1.0
  */
 public class HillClimbing {
-
+    public HeuristicFunction hf = new HeuristicFunction();
     /**
      * Pre: estadoProblema es el estado actual del grafo de sensores y centros.
      * Post: Usando el método de Hill Climbing selecciona y devuelve el mejor
@@ -49,7 +49,6 @@ public class HillClimbing {
      */
     private EstadoProblema getBestSolutionPartial(ArrayList retval, EstadoProblema ep) {
         ArrayList<EstadoProblema> arraySolutions = ((ArrayList<EstadoProblema>) retval);
-        HeuristicFunction hf = new HeuristicFunction();
         double bestCost = hf.getHeuristicValue(ep);
         int bestSolution = -1;
 
