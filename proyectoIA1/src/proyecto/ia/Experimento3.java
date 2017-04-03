@@ -9,7 +9,7 @@ public class Experimento3 {
     private EstadoProblema ep;
 
 
-    public Experimento2() {
+    public Experimento3() {
         ep = new EstadoProblema(nsensores, ncentros);
         ep.generar_sol_ini_1();
         System.out.println("CONFIGURACIÓN INICIAL:");
