@@ -55,7 +55,13 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
      */
     public List getSuccessors(Object state) {
         retval.clear();
-        getSuccessorsAux(state);
+        getSuccessorsAux(state, true, true);
+        return retval;
+    }
+
+    public List getSuccessors(Object state, boolean switchcables, boolean changecable) {
+        retval.clear();
+        getSuccessorsAux(state, switchcables, changecable);
         return retval;
     }
 
@@ -65,12 +71,12 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
      * sucesores posibles.
      * @param stateP Parámetro que representa el estado actual con el que trabajar.
      */
-    private void getSuccessorsAux(Object stateP) {
+    private void getSuccessorsAux(Object stateP, boolean switchcables, boolean changecable) {
         EstadoProblema state = (EstadoProblema) stateP;
         HashMap<Integer,Integer> conections = state.getConnectionsMap();
         for(Integer i: conections.keySet()) {
             for(Integer j: conections.keySet()) {
-                if(i != j) {
+                if(i != j && switchcables) {
                     System.out.println("Switching:\n"+i+" "+conections.get(i)+"\n"+j+" "+conections.get(j));
                     /* switch cable */
                     state.switchcables(i, j);
@@ -86,7 +92,7 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
             }
             for(Integer j = 0; j < (state.sds.size() + state.cds.size()); j++) {
                 /* change cable */
-                if(i != j) {
+                if(i != j && changecable) {
                     System.out.println("Changing:\n"+i+" "+conections.get(i)+" "+j);
                     Integer zz = conections.get(i);
                     if(j >= state.sds.size()) { //destino es un centro

@@ -32,7 +32,7 @@ public class HillClimbing {
         SuccesorFunction sf = new SuccesorFunction();
         EstadoProblema epSol;
         while(true) {
-            List retval = sf.getSuccessors(estadoProblema);
+            List retval = sf.getSuccessors(estadoProblema, switchcables, changecable);
             epSol = getBestSolutionPartial(((ArrayList) retval), estadoProblema);
             if(estadoProblema == epSol) return epSol;
             estadoProblema = epSol;
