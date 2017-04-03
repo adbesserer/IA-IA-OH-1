@@ -17,6 +17,13 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
 
     SuccesorFunction(){}
 
+    private boolean nodeIsVisited(Integer node, ArrayList<Integer> visited){
+        for(int i=0; i<visited.size(); ++i){
+            if(visited.get(i) == node) return true;
+        }
+        return false;
+    }
+
     /**
      * Pre: El estado problema puede tener un ciclo después del cambio de cable.
      * Post: devuelve TRUE si existe ahora un ciclo, FALSE si no hay ninguno.
@@ -29,7 +36,8 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
         ArrayList<Integer> visited = new ArrayList<>();
         visited.add(node); node = ep.getConnectionsMap().get(node);
         while(node < ep.sds.size()){
-            if(node == i) return true;
+            if(nodeIsVisited(node, visited)) return true;
+            visited.add(node);
             node = ep.getConnectionsMap().get(node);
         }
         return false;
@@ -65,12 +73,10 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
                     if(!theresCycle(i, state) && !theresCycle(j, state)) {
 
                         state.compute_volumes();
-                        state.showconnections();
-                        System.out.println("AQUIIIIII 4: "+state.coste_total());
                         EstadoProblema newState = new EstadoProblema(state);
                         retval.add(newState);
+
                     }
-                    else System.out.println("HAY CICLO");
                     state.switchcables(i, j);
                 }
             }
@@ -94,7 +100,6 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
                                 state.compute_volumes();
                                 EstadoProblema newState = new EstadoProblema(state);
                                 retval.add(newState);
-                                state.showconnections();
                             }
                         }
                     } else { //destino es un sensor
@@ -112,7 +117,6 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
                                 state.compute_volumes();
                                 EstadoProblema newState = new EstadoProblema(state);
                                 retval.add(newState);
-                                state.showconnections();
                             }
                         }
                     }
