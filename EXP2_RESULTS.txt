@@ -1,0 +1,62 @@
+EXPERIMENTO 2: 
+
+
+Nº DE EJECUCIÓN 1
+
+El coste final usando el generador 1 es: 295373.0, y el volumen es: 530
+El coste final usando el generador 2 es: 494453.0, y el volumen es: 478
+El coste final usando el generador 3 es: 63547.0, y el volumen es: 469
+
+Nº DE EJECUCIÓN 2
+
+El coste final usando el generador 1 es: 259860.0, y el volumen es: 530
+El coste final usando el generador 2 es: 195139.0, y el volumen es: 530
+El coste final usando el generador 3 es: 67834.0, y el volumen es: 497
+
+Nº DE EJECUCIÓN 3
+
+El coste final usando el generador 1 es: 220127.0, y el volumen es: 530
+El coste final usando el generador 2 es: 317310.0, y el volumen es: 530
+El coste final usando el generador 3 es: 63496.0, y el volumen es: 449
+
+Nº DE EJECUCIÓN 4
+
+El coste final usando el generador 1 es: 180188.0, y el volumen es: 530
+El coste final usando el generador 2 es: 216354.0, y el volumen es: 530
+El coste final usando el generador 3 es: 60852.0, y el volumen es: 486
+
+Nº DE EJECUCIÓN 5
+
+El coste final usando el generador 1 es: 328015.0, y el volumen es: 530
+El coste final usando el generador 2 es: 301985.0, y el volumen es: 530
+El coste final usando el generador 3 es: 75904.0, y el volumen es: 477
+
+Nº DE EJECUCIÓN 6
+
+El coste final usando el generador 1 es: 290016.0, y el volumen es: 530
+El coste final usando el generador 2 es: 229981.0, y el volumen es: 530
+El coste final usando el generador 3 es: 87887.0, y el volumen es: 464
+
+Nº DE EJECUCIÓN 7
+
+El coste final usando el generador 1 es: 270855.0, y el volumen es: 530
+El coste final usando el generador 2 es: 174888.0, y el volumen es: 530
+El coste final usando el generador 3 es: 76200.0, y el volumen es: 433
+
+Nº DE EJECUCIÓN 8
+
+El coste final usando el generador 1 es: 313076.0, y el volumen es: 530
+El coste final usando el generador 2 es: 332766.0, y el volumen es: 515
+El coste final usando el generador 3 es: 85429.0, y el volumen es: 453
+
+Nº DE EJECUCIÓN 9
+
+El coste final usando el generador 1 es: 238653.0, y el volumen es: 530
+El coste final usando el generador 2 es: 172667.0, y el volumen es: 530
+El coste final usando el generador 3 es: 78703.0, y el volumen es: 450
+
+Nº DE EJECUCIÓN 10
+
+El coste final usando el generador 1 es: 461451.0, y el volumen es: 530
+El coste final usando el generador 2 es: 272939.0, y el volumen es: 530
+El coste final usando el generador 3 es: 64938.0, y el volumen es: 465
