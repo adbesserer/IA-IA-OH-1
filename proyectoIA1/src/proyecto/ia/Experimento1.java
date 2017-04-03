@@ -8,6 +8,8 @@ inicialización de entre las que proponéis. A partir de estos resultados deber�
 el resto de experimentos. Pensad que con estas proporciones, se podrán transmitir todos los datos.
  */
 
+import static java.lang.StrictMath.abs;
+
 /**
  * Clase que encapsula los métodos y datos necesarios para el experimento 1
  */
@@ -35,7 +37,7 @@ public class Experimento1 {
         coste_final   = best.coste_total();
 
         System.out.println("La mejora en coste usando sólo el operador de switch cables es :"
-                        + (coste_final-coste_inicial));
+                        + (-1)*(coste_final-coste_inicial));
         System.out.println("La diferencia en volumen es" + (volumen_final-volumen_inicial));
     }
     public void testChange(){       // comprobar los resultados usando solo el operador change cable
@@ -45,8 +47,8 @@ public class Experimento1 {
         coste_final   = best.coste_total();
 
         System.out.println("La mejora en coste usando sólo el operador de change cable es :"
-                + (coste_final-coste_inicial));
-        System.out.println("La diferencia en volumen es" + (volumen_final-volumen_inicial));
+                + (-1)*(coste_final-coste_inicial));
+        System.out.println("La diferencia en volumen es: " + (volumen_final-volumen_inicial));
     }
     public void testBoth(){         // comprobar los resultados usando ambos operadores: esperamos el mejor rendimiento aqui
         HillClimbing hc = new HillClimbing();
@@ -55,8 +57,8 @@ public class Experimento1 {
         coste_final   = best.coste_total();
 
         System.out.println("La mejora en coste usando ambos operadores es :"
-                + (coste_final-coste_inicial));
-        System.out.println("La diferencia en volumen es" + (volumen_final-volumen_inicial));
+                + (-1)*(coste_final-coste_inicial));
+        System.out.println("La diferencia en volumen es: " + (volumen_final-volumen_inicial));
     }
     public void runTests(){ // corre los tres tests
         testChange();

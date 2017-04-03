@@ -40,7 +40,7 @@ public class Experimento2 {
         System.out.println("La mejora en coste y el cambio en volumen con el generador 1 son respectivamente: "
                 + (coste_final-coste_inicial) + (volumen_final-volumen_inicial));
     }
-    public void run() {
+    public void  run() {
         HillClimbing hc = new HillClimbing();
         EstadoProblema best = hc.getBestSolution(new EstadoProblema(ep), true, true); //switch= false, change = true
         volumen_final = best.volumen_total();
