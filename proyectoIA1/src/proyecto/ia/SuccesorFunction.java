@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class SuccesorFunction implements aima.search.framework.SuccessorFunction{
-    public ArrayList retval = new ArrayList<>();
+    public ArrayList retval = new ArrayList();
 
     SuccesorFunction(){}
 
@@ -21,15 +21,16 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
      * Pre: El estado problema puede tener un ciclo después del cambio de cable.
      * Post: devuelve TRUE si existe ahora un ciclo, FALSE si no hay ninguno.
      * @param i nodo del grafo desde donde se ha cambiado un cable.
-     * @param j nodo del grafo que ahora tiene como entrada el nodo i
      * @param ep Estado actual del grafo, incluido con el cambio.
      * @return Boolean que indica si existe algún ciclo a partir del nodo i
      */
-    private Boolean theresCycle(Integer i, Integer j, EstadoProblema ep){
-        Integer size = (Integer) ep.sds.size();
-        while(j != i && j < size){
-            j = ep.getConnectionsMap().get(j);
-            if(j == i) return true;
+    private boolean theresCycle(Integer i, EstadoProblema ep){
+        Integer node = i;
+        ArrayList<Integer> visited = new ArrayList<>();
+        visited.add(node); node = ep.getConnectionsMap().get(node);
+        while(node < ep.sds.size()){
+            if(node == i) return true;
+            node = ep.getConnectionsMap().get(node);
         }
         return false;
     }
@@ -60,21 +61,24 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
                 if(i != j) {
                     System.out.println("Switching:\n"+i+" "+conections.get(i)+"\n"+j+" "+conections.get(j));
                     /* switch cable */
-                    int z1 = conections.get(i);
-                    int z2 = conections.get(j);
                     state.switchcables(i, j);
-                    if(!theresCycle(i, z2, state) && !theresCycle(j, z1, state)) {
+                    if(!theresCycle(i, state) && !theresCycle(j, state)) {
+
                         state.compute_volumes();
                         state.showconnections();
-                        retval.add(state);
+                        System.out.println("AQUIIIIII 4: "+state.coste_total());
+                        EstadoProblema newState = new EstadoProblema(state);
+                        retval.add(newState);
                     }
-                    state = (EstadoProblema) stateP;
+                    else System.out.println("HAY CICLO");
+                    state.switchcables(i, j);
                 }
             }
             for(Integer j = 0; j < (state.sds.size() + state.cds.size()); j++) {
                 /* change cable */
                 if(i != j) {
                     System.out.println("Changing:\n"+i+" "+conections.get(i)+" "+j);
+                    Integer zz = conections.get(i);
                     if(j >= state.sds.size()) { //destino es un centro
                         if(state.cds.get(j - state.sds.size()).getnConnexions() < 25) {
                             int z = state.getConnectionsMap().get(i);
@@ -83,11 +87,13 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
                             } else {
                                 state.sds.get(z).setnConnexions(state.sds.get(z).getnConnexions() - 1);
                             }
-                            state.changecable(i, j);
+
                             state.cds.get(j - state.sds.size()).setnConnexions(state.cds.get(j - state.sds.size()).getnConnexions() + 1);
-                            if(!theresCycle(i, j, state)) {
+                            if(!theresCycle(i, state)) {
+                                state.changecable(i, j);
                                 state.compute_volumes();
-                                retval.add(state);
+                                EstadoProblema newState = new EstadoProblema(state);
+                                retval.add(newState);
                                 state.showconnections();
                             }
                         }
@@ -99,16 +105,18 @@ public class SuccesorFunction implements aima.search.framework.SuccessorFunction
                             } else {
                                 state.sds.get(z).setnConnexions(state.sds.get(z).getnConnexions() - 1);
                             }
-                            state.changecable(i, j);
+
                             state.sds.get(j).setnConnexions(state.sds.get(j).getnConnexions() + 1);
-                            if(!theresCycle(i, j, state)) {
+                            if(!theresCycle(i, state)) {
+                                state.changecable(i, j);
                                 state.compute_volumes();
-                                retval.add(state);
+                                EstadoProblema newState = new EstadoProblema(state);
+                                retval.add(newState);
                                 state.showconnections();
                             }
                         }
                     }
-                    state = (EstadoProblema) stateP;
+                    state.changecable(i, zz);
                 }
             }
         }

@@ -3,8 +3,7 @@ package proyecto.ia;
 import IA.Connectat.ES;
 import IA.Red.*;
 
-import javax.swing.plaf.basic.BasicSplitPaneUI;
-import java.security.Key;
+
 import java.util.Scanner;
 import java.util.*;
 
@@ -24,9 +23,16 @@ public class EstadoProblema {
     // Creadora
     //================================================================================
 
+    public EstadoProblema(EstadoProblema ep){
+        this.cds = ep.cds;
+        this.sds = ep.sds;
+        this.connectionsMap = ep.connectionsMap;
+    }
+
     /**
      * creadora por defecto, pedirá que se introduzcan las variables del problema
      */
+
     public EstadoProblema(){
         Scanner sc = new Scanner(System.in);
 
