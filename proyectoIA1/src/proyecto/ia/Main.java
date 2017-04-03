@@ -33,6 +33,8 @@ public class Main {
             }
             if (selection == 3){
                 System.out.println("EXPERIMENTO 3: \n");
+                Experimento3 e3 = new Experimento3();
+                e3.runTests();
             }
         }
     }
