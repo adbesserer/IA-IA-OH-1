@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="proyectoIA1:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/proyectoIA1_jar</output-path>
+    <root id="archive" name="proyectoIA1.jar">
+      <element id="module-output" name="proyectoIA1" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/RedSensores.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/AIMA.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
