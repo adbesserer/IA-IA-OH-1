@@ -8,7 +8,11 @@ Nº DE CENTROS = 6; Nº DE SENSORES = 150
 Coste final:87561.0; Volumen final: 651
 
 Tiempo total: 231s
+Nº DE CENTROS = 8; Nº DE SENSORES = 200
+Coste final:95942.0; Volumen final: 796
+
+Tiempo total: 2205s
 
 
 
-//IMBENTANTE OTRO DATO LOKO
+
