@@ -158,7 +158,6 @@ public class EstadoProblema {
             System.out.println("The sensors are connected to the same thing");
         }
         else{
-            System.out.println("SWITCHING NIGGA");
             Integer keydest1, keydest2;
             double volumen1, volumen2;
             keydest1 = connectionsMap.get(keyS1);
@@ -193,7 +192,6 @@ public class EstadoProblema {
                 if (sds.get(keydest2).getVolumen() > sds.get(keydest2).getCapacidad() * 3)
                     sds.get(keydest2).setVolumen((int) sds.get(keydest2).getCapacidad() * 3);
             }
-            System.out.println("DONE SWITCHING");
         }
     }
 
