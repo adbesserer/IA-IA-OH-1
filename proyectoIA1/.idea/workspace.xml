@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b956c3b-c829-4606-8284-4c0b7adb9e3f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/EstadoProblema.class" afterPath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/EstadoProblema.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/GoalTest.class" afterPath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/GoalTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/Main.class" afterPath="$PROJECT_DIR$/out/production/proyectoIA1/proyecto/ia/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proyecto/ia/Experimento3.java" afterPath="$PROJECT_DIR$/src/proyecto/ia/Experimento3.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proyecto/ia/Experimento4.java" afterPath="$PROJECT_DIR$/src/proyecto/ia/Experimento4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proyecto/ia/Main.java" afterPath="$PROJECT_DIR$/src/proyecto/ia/Main.java" />
     </list>
     <list id="7ec4fbd8-dc60-4069-b215-e81334adce50" name="Failed commit: Default" comment="es dirigido o no?" />
     <list id="1e28913d-f68c-42f1-9fd8-761cac08c44a" name="Failed commit: Default (2)" comment="es dirigido o no?" />
@@ -42,8 +37,8 @@
       <file leaf-file-name="Experimento4.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/proyecto/ia/Experimento4.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="45" column="45" lean-forward="true" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
+            <state relative-caret-position="278">
+              <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -492,13 +487,6 @@
       <option name="presentableId" value="Default" />
       <updated>1490798961189</updated>
     </task>
-    <task id="LOCAL-00003" summary="functions not implemented">
-      <created>1490800080943</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1490800080943</updated>
-    </task>
     <task id="LOCAL-00004" summary="es dirigido o no?">
       <created>1490809927325</created>
       <option name="number" value="00004" />
@@ -835,7 +823,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491240782053</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="EXP 4 boi">
+      <created>1491245307469</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1491245307470</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -891,7 +886,8 @@
     <MESSAGE value="No longer switching nigga" />
     <MESSAGE value="KAIBA YOU'RE SWITCHIN' FOR A BRUISIN'&#10;&#10;LET'S D-D-D-D-D-D-DUEL!" />
     <MESSAGE value="Merge branch 'master' of https://github.com/adbesserer/IA-IA-OH-1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/adbesserer/IA-IA-OH-1" />
+    <MESSAGE value="EXP 4 boi" />
+    <option name="LAST_COMMIT_MESSAGE" value="EXP 4 boi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1393,8 +1389,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proyecto/ia/Experimento4.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="45" column="45" lean-forward="true" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
+        <state relative-caret-position="278">
+          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
           <folding />
         </state>
       </provider>

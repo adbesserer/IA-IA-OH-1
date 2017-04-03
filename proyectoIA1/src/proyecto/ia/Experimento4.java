@@ -48,7 +48,7 @@ public class Experimento4 {
             System.out.println("Coste final:"+ coste_final + "; Volumen final: " + volumen_final +"\n");
 
             time_end = System.currentTimeMillis();
-            System.out.println("Tiempo total: "+ (( time_end - time_start )/100) +" ms");
+            System.out.println("Tiempo total: "+ (( time_end - time_start )/1000) +"s");
         }
     }
 
