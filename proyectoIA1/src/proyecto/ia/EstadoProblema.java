@@ -1,5 +1,6 @@
 package proyecto.ia;
 
+import IA.Connectat.ES;
 import IA.Red.*;
 
 import javax.swing.plaf.basic.BasicSplitPaneUI;
@@ -117,6 +118,12 @@ public class EstadoProblema {
 
     }
 
+    public EstadoProblema(EstadoProblema ep){
+        cds = ep.cds;
+        sds = ep.sds;
+        connectionsMap= ep.connectionsMap;
+    }
+
     //================================================================================
     // Output
     //================================================================================
@@ -186,6 +193,7 @@ public class EstadoProblema {
                 if (sds.get(keydest2).getVolumen() > sds.get(keydest2).getCapacidad() * 3)
                     sds.get(keydest2).setVolumen((int) sds.get(keydest2).getCapacidad() * 3);
             }
+            System.out.println("DONE SWITCHING");
         }
     }
 
