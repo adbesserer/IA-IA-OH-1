@@ -14,15 +14,12 @@ import java.util.*;
 public class EstadoProblema {
     public ArrayList<CenterData> cds = new ArrayList<CenterData>();
     public ArrayList<SensorData> sds = new ArrayList<SensorData>();
-
-    //solo necesito saber cual de ellos es de cd y sd
-    //el primero siempre es sensor
     private HashMap<Integer, Integer> connectionsMap = new HashMap<>();
 
-    //================================================================================
-    // Creadora
-    //================================================================================
-
+    /**
+     * Post: crea un nuevo objeto EstadoProblema, copia de ep.
+     * @param ep el EstadoProblema que será copiado.
+     */
     public EstadoProblema(EstadoProblema ep){
         this.cds = (ArrayList<CenterData>) ep.cds.clone();
         this.sds = (ArrayList<SensorData>) ep.sds.clone();
@@ -30,9 +27,8 @@ public class EstadoProblema {
     }
 
     /**
-     * creadora por defecto, pedirá que se introduzcan las variables del problema
+     * Post: creadora por defecto de EstadoProblema. Pide la introducción de datos.
      */
-
     public EstadoProblema(){
         Scanner sc = new Scanner(System.in);
 
@@ -123,6 +119,14 @@ public class EstadoProblema {
         }
 
     }
+
+    /**
+     * Post: crea un nuevo objeto EstadoProblema con nsens, ncents, seed1 y seed2.
+     * @param nsens número de sensores.
+     * @param ncents número de centros.
+     * @param seed1
+     * @param seed2
+     */
     public EstadoProblema(int nsens, int ncents, int seed1, int seed2) {
         if (nsens < 1 || ncents < 1) {
             System.out.println("Tanto el numero de sensores como de centros debe ser > 0. Introduce nuevos.");
@@ -160,10 +164,9 @@ public class EstadoProblema {
         }
     }
 
-    //================================================================================
-    // Output
-    //================================================================================
-
+    /**
+     * Imprime por pantalla los sensores y sus coordenadas y los centros y sus coordenadas.
+     */
     public void Output(){
         System.out.println("SENSORES");
         for(Integer key: connectionsMap.keySet()){
@@ -176,16 +179,12 @@ public class EstadoProblema {
         }
     }
 
-    //================================================================================
-    // Operadors
-    //================================================================================
-
     /**
      *
      * @param keyS1 Parámetro que indica uno de los dos sensores a los cual cambiar el cable con otro.
      * @param keyS2 Parámetro que indica uno de los dos sensores a los cual cambiar el cable con otro.
      * NB: los operadores ya no consideran invalidos los cambios que hacen que un elemento se pase de su volumen maximo,
-     * simplemente lo fijan al maximo y lo que sobra se pierde
+     * simplemente lo fijan al maximo y lo que sobra se pierde.
      */
     public void switchcables (Integer keyS1, Integer keyS2){ //intercambiar la cosa a la que apuntan dos sensores
         if(connectionsMap.get(keyS2)==keyS1 || connectionsMap.get(keyS1)==keyS2){
@@ -232,8 +231,8 @@ public class EstadoProblema {
     }
 
     /**
-     * pre: KeySource is the key of a sensor and KeyDest is the key of a sensor or center
-     * post: KeySource is connected to KeyDest
+     * pre: KeySource is the key of a sensor and KeyDest is the key of a sensor or center.
+     * post: KeySource is connected to KeyDest.
      * @param KeySource Parámetro que indica el sensor al cual cambiar el cable.
      * @param KeyDest Parámetro que indica la estructura el cual el cable estará conectado.
      */
@@ -274,7 +273,7 @@ public class EstadoProblema {
     //================================================================================
     /**
      * solucion inicial: conectar los sensores directamente a los centros mientras haya espacio
-     * despues, conectar los sensores a otros sensores ya conectados
+     * despues, conectar los sensores a otros sensores ya conectados.
      */
     public void generar_sol_ini_1(){
         int j = 0; // u es el indice del primer sensor desconectado
@@ -399,6 +398,7 @@ public class EstadoProblema {
             }
         }
     }
+
     public class sdComparator implements Comparator<SensorData> {
         @Override
         public int compare(SensorData sd1, SensorData sd2) {

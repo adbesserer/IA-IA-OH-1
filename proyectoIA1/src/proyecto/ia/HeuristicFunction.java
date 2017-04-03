@@ -10,7 +10,7 @@ public class HeuristicFunction {
 
     /**
      * Pre: ---
-     * Post: crea un nuevo objeto HeuristicFunction
+     * Post: crea un nuevo objeto HeuristicFunction.
      */
     public HeuristicFunction() {
         this.maxVTransmissio = 0;
@@ -18,10 +18,10 @@ public class HeuristicFunction {
     }
 
     /**
-     * Pre: ----
-     * Post: devuevle el valor heurístico para el EstadoProblema n
-     * @param n debería ser un EstadoProblema
-     * @return double que indica el valor heurístico de n
+     * Pre: n es un objeto EstadoProblema que representa un estado.
+     * Post: devuevle el valor heurístico para el EstadoProblema n.
+     * @param n debería ser un EstadoProblema.
+     * @return double que indica el valor heurístico de n.
      */
     public double getHeuristicValue(Object n) {
         /* Integer penalty = 5; */
@@ -43,9 +43,9 @@ public class HeuristicFunction {
 
     /**
      * Pre: ---
-     * Post: devuelve el número de sensores desconectados de un centro
-     * @param state
-     * @return devuelve el número de sensores desconectados de un centro
+     * Post: devuelve el número de sensores desconectados de un centro.
+     * @param state el estado.
+     * @return devuelve el número de sensores desconectados de un centro.
      */
     public Integer areAllSensorsConnected(EstadoProblema state) {
         this.sensorsFound.clear();
@@ -62,12 +62,12 @@ public class HeuristicFunction {
 
     /**
      * Pre: ---
-     * Post: devuelve si el sensor identificado con la llave key está conectado a un centro
-     * @param key llave para el sensor que tratamos si tiene camino hasta un centro
-     * @param connections mapa de conexiones
-     * @param nSensors número de sensores
-     * @param deep profundidad para parar la recursividad
-     * @return devuelve si el sensor identificado con la llave key está conectado a un centro
+     * Post: devuelve si el sensor identificado con la llave key está conectado a un centro.
+     * @param key llave para el sensor que tratamos si tiene camino hasta un centro.
+     * @param connections mapa de conexiones.
+     * @param nSensors número de sensores.
+     * @param deep profundidad para parar la recursividad.
+     * @return devuelve si el sensor identificado con la llave key está conectado a un centro.
      */
     public Boolean areAllSensorsConnectedAux(Integer key, HashMap<Integer, Integer> connections, Integer nSensors, Integer deep) {
         if(deep == 0) return false;
